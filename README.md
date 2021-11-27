@@ -1,4 +1,4 @@
-Prvi projekat iz predmeta NapredneBazePodataka
+Prvi projekat iz predmeta NapredneBazePodataka<br />
 Clanovi tima:   <br />
 Slavko Petrovic <br />
 Natalija Pavlovic https://github.com/natalijapavlovic17321<br />
