@@ -187,6 +187,14 @@ namespace HotelManager
                               .ExecuteWithoutResultsAsync();
 
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var form1 = new RadniciHotelaForm();
+            form1.client = client;
+            form1.Closed += (s, args) => this.Close();
+            form1.Show();
+        }
     }
 }
 

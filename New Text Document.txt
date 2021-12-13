@@ -1,0 +1,16 @@
+Slavko:
+
+		Logovanje,,dodavanje hotela, dodavanje raddnika, dodavanje recepcionara, dodavanje soba i sve veze koje postoje i brisanje svega izmena svega pregled sevga
+		
+Natalija:
+		
+		Pregled svih soba hotela, pregled rezerviosanih, kada se klikne prikaze gosta itd, rezervacija soba
+
+Aleksandra:
+		
+		(izmena sifre)
+		manipulacija radnicima, slanje poslova radnicima obracunavanje racuna, birsanje TASKOVA, oslobadjanje soba, brisanje gostiju
+		
+Mateja:
+
+		updateovanje taskova, TASKOVI SE BRISU KADA SE GOST ODJAVI,

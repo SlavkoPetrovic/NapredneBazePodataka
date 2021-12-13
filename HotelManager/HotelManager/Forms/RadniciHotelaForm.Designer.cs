@@ -58,7 +58,7 @@ namespace HotelManager
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(73, 83);
+            this.listView1.Location = new System.Drawing.Point(55, 77);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(548, 279);
             this.listView1.TabIndex = 2;
@@ -68,6 +68,7 @@ namespace HotelManager
             // columnHeader1
             // 
             this.columnHeader1.Text = "Ime";
+            this.columnHeader1.Width = 49;
             // 
             // columnHeader2
             // 
