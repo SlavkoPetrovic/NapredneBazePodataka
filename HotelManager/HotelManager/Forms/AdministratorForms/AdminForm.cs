@@ -23,5 +23,31 @@ namespace HotelManager.Forms.AdministratorForms
         {
 
         }
+
+        private void showHotelsbtn_Click(object sender, EventArgs e)
+        {
+            HotelsInformationsForm form1 = new HotelsInformationsForm();
+            form1.client = client;
+            form1.Show();
+        }
+
+        private void showWorkersbtn_Click(object sender, EventArgs e)
+        {
+            EmployeeInformationsForm form1 = new EmployeeInformationsForm();
+            form1.client = client;
+            form1.Show();
+        }
+
+        private void showroomsbtn_Click(object sender, EventArgs e)
+        {
+            RoomsInformationsForm form1 =new RoomsInformationsForm();
+            form1.client = client;
+            form1.Show();
+        }
+
+        private void AdminForm_Load(object sender, EventArgs e)
+        {
+        
+        }
     }
 }

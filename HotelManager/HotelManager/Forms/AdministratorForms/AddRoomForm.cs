@@ -15,9 +15,25 @@ namespace HotelManager.Forms.AdministratorForms
     public partial class AddRoomForm : Form
     {
         public GraphClient client;
+        private bool hotelOption;
+        private string hname;
+        private string hlocation;
         public AddRoomForm()
         {
             InitializeComponent();
+            HotelComboBox.Visible = true;
+            hotelOption = true;
+            label5.Visible = true;
+
+        }
+        public AddRoomForm(string name,string location)
+        {
+            hname = name;
+            hlocation = location;
+            InitializeComponent();
+            HotelComboBox.Visible = false;
+            hotelOption = false;
+            label5.Visible = false;
         }
 
         private async void AddRoomBtn_Click(object sender, EventArgs e)
@@ -37,24 +53,27 @@ namespace HotelManager.Forms.AdministratorForms
                 ID = newId 
             };
 
-            
-
-            var nameAndLocation = HotelComboBox.Text.Split(" ");
-            var name = nameAndLocation[0];
-            var location = nameAndLocation[1]; // Mora ovako zato sto javlja gresku u suprotnom
+            if(hotelOption ==true)
+            {
+                var nameAndLocation = HotelComboBox.Text.Split(" ");
+                hname = nameAndLocation[0];
+                hlocation = nameAndLocation[1]; // Mora ovako zato sto javlja gresku u suprotnom
+            }
 
             try
             {
                 await client.Cypher
                           .Match("(h:Hotel)")
-                          .Where((Hotel h) => h.Name == name)
-                          .AndWhere((Hotel h) => h.Location == location)
+                          .Where((Hotel h) => h.Name == hname)
+                          .AndWhere((Hotel h) => h.Location == hlocation)
                           .Create("(room:Room $room)")
                           .WithParam("room", room)
                           .Merge("(room)-[r:PARTOF]->(h)")
                           .ExecuteWithoutResultsAsync();
 
                 MessageBox.Show("Soba je uspesno dodata");
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             catch (Exception exc)
             {
@@ -68,17 +87,6 @@ namespace HotelManager.Forms.AdministratorForms
 
         private void AddRoomForm_Load(object sender, EventArgs e)
         {
-            client = new GraphClient(new Uri("http://localhost:7474"), "neo4j", "sifra123");
-            try
-            {
-
-                client.ConnectAsync().Wait();
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
-
             PopulateInfo();
         }
         private async void PopulateInfo()

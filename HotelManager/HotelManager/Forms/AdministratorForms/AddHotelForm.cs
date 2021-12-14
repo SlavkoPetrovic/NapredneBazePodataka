@@ -22,6 +22,11 @@ namespace HotelManager.Forms
 
         private async void AddHotelBtn_Click(object sender, EventArgs e)
         {
+            if(String.IsNullOrEmpty(LocationTxtBox.Text) || String.IsNullOrEmpty(nameTxtBox.Text) || String.IsNullOrEmpty(addressTxtBox.Text))
+            {
+                MessageBox.Show("Molimo popunite sva polja!");
+                return;
+            }
 
             var hotel = new Hotel
             {
@@ -41,6 +46,9 @@ namespace HotelManager.Forms
                           .ExecuteWithoutResultsAsync();
 
                 MessageBox.Show("Hotel je uspesno dodat");
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             catch (Exception exc)
             {
@@ -52,16 +60,7 @@ namespace HotelManager.Forms
 
         private void AddHotelForm_Load(object sender, EventArgs e)
         {
-            client = new GraphClient(new Uri("http://localhost:7474"), "neo4j", "sifra123");
-            try
-            {
 
-                client.ConnectAsync().Wait();
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
         }
     }
 }

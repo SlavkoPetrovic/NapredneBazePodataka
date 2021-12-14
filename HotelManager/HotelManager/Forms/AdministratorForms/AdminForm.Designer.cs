@@ -29,57 +29,61 @@ namespace HotelManager.Forms.AdministratorForms
         /// </summary>
         private void InitializeComponent()
         {
-            this.CreateHotelBtn = new System.Windows.Forms.Button();
-            this.AddNewRoomBtn = new System.Windows.Forms.Button();
-            this.addNewEmployee = new System.Windows.Forms.Button();
+            this.showHotelsbtn = new System.Windows.Forms.Button();
+            this.showWorkersbtn = new System.Windows.Forms.Button();
+            this.showroomsbtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // CreateHotelBtn
+            // showHotelsbtn
             // 
-            this.CreateHotelBtn.Location = new System.Drawing.Point(40, 32);
-            this.CreateHotelBtn.Name = "CreateHotelBtn";
-            this.CreateHotelBtn.Size = new System.Drawing.Size(155, 40);
-            this.CreateHotelBtn.TabIndex = 0;
-            this.CreateHotelBtn.Text = "Dodaj novi hotel";
-            this.CreateHotelBtn.UseVisualStyleBackColor = true;
-            this.CreateHotelBtn.Click += new System.EventHandler(this.CreateHotelBtn_Click);
+            this.showHotelsbtn.Location = new System.Drawing.Point(198, 65);
+            this.showHotelsbtn.Name = "showHotelsbtn";
+            this.showHotelsbtn.Size = new System.Drawing.Size(156, 23);
+            this.showHotelsbtn.TabIndex = 0;
+            this.showHotelsbtn.Text = "Prikazi sve hotele";
+            this.showHotelsbtn.UseVisualStyleBackColor = true;
+            this.showHotelsbtn.Click += new System.EventHandler(this.showHotelsbtn_Click);
             // 
-            // AddNewRoomBtn
+            // showWorkersbtn
             // 
-            this.AddNewRoomBtn.Location = new System.Drawing.Point(44, 105);
-            this.AddNewRoomBtn.Name = "AddNewRoomBtn";
-            this.AddNewRoomBtn.Size = new System.Drawing.Size(150, 41);
-            this.AddNewRoomBtn.TabIndex = 1;
-            this.AddNewRoomBtn.Text = "Dodaj novu sobu hotelu";
-            this.AddNewRoomBtn.UseVisualStyleBackColor = true;
+            this.showWorkersbtn.Location = new System.Drawing.Point(197, 114);
+            this.showWorkersbtn.Name = "showWorkersbtn";
+            this.showWorkersbtn.Size = new System.Drawing.Size(156, 23);
+            this.showWorkersbtn.TabIndex = 1;
+            this.showWorkersbtn.Text = "Prikazi sve radnike";
+            this.showWorkersbtn.UseVisualStyleBackColor = true;
+            this.showWorkersbtn.Click += new System.EventHandler(this.showWorkersbtn_Click);
             // 
-            // addNewEmployee
+            // showroomsbtn
             // 
-            this.addNewEmployee.Location = new System.Drawing.Point(55, 180);
-            this.addNewEmployee.Name = "addNewEmployee";
-            this.addNewEmployee.Size = new System.Drawing.Size(183, 37);
-            this.addNewEmployee.TabIndex = 2;
-            this.addNewEmployee.Text = "Dodaj novog Radnika";
-            this.addNewEmployee.UseVisualStyleBackColor = true;
+            this.showroomsbtn.Location = new System.Drawing.Point(197, 170);
+            this.showroomsbtn.Name = "showroomsbtn";
+            this.showroomsbtn.Size = new System.Drawing.Size(156, 23);
+            this.showroomsbtn.TabIndex = 2;
+            this.showroomsbtn.Text = "Prikazi sve sobe";
+            this.showroomsbtn.UseVisualStyleBackColor = true;
+            this.showroomsbtn.Click += new System.EventHandler(this.showroomsbtn_Click);
             // 
             // AdminForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.addNewEmployee);
-            this.Controls.Add(this.AddNewRoomBtn);
-            this.Controls.Add(this.CreateHotelBtn);
+            this.ClientSize = new System.Drawing.Size(700, 338);
+            this.Controls.Add(this.showroomsbtn);
+            this.Controls.Add(this.showWorkersbtn);
+            this.Controls.Add(this.showHotelsbtn);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AdminForm";
             this.Text = "AdminForm";
+            this.Load += new System.EventHandler(this.AdminForm_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button CreateHotelBtn;
-        private System.Windows.Forms.Button AddNewRoomBtn;
-        private System.Windows.Forms.Button addNewEmployee;
+        private System.Windows.Forms.Button showHotelsbtn;
+        private System.Windows.Forms.Button showWorkersbtn;
+        private System.Windows.Forms.Button showroomsbtn;
     }
 }

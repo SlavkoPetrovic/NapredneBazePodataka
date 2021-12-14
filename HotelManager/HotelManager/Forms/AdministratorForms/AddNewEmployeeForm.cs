@@ -16,26 +16,33 @@ namespace HotelManager.Forms.AdministratorForms
     public partial class AddNewEmployeeForm : Form
     {
         public GraphClient client;
+        private bool hotelOption;
+        private string hname;
+        private string hlocation;
         public AddNewEmployeeForm()
         {
             InitializeComponent();
+            hotelOption = true;
+            HotelComboBox.Visible = true;
+            label1.Visible = true;
+        }
+        public AddNewEmployeeForm(string hotelName,string hotelLocation)
+        {
+            hname = hotelName;
+            hlocation = hotelLocation;
+            InitializeComponent();
+            hotelOption = false;
+            HotelComboBox.Visible = false;
+            label1.Visible = false;
         }
 
         private void AddNewEmployeeForm_Load(object sender, EventArgs e)
         {
 
-            client = new GraphClient(new Uri("http://localhost:7474"), "neo4j", "sifra123");
-            try
+            if(hotelOption ==true)
             {
-
-                client.ConnectAsync().Wait();
+                PopulateInfo();
             }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
-
-            PopulateInfo();
         }
         private async void PopulateInfo()
         {
@@ -76,22 +83,27 @@ namespace HotelManager.Forms.AdministratorForms
                 Surname = SurnameTxtBox.Text,
                 Password = hPassword
             };
-            var nameAndLocation = HotelComboBox.Text.Split(" ");
-            var name = nameAndLocation[0];
-            var location = nameAndLocation[1]; // Mora ovako zato sto javlja gresku u suprotnom
+            if(hotelOption == true)
+            {
+                var nameAndLocation = HotelComboBox.Text.Split(" ");
+                hname = nameAndLocation[0];
+                hlocation = nameAndLocation[1]; // Mora ovako zato sto javlja gresku u suprotnom
+            }
 
             try
             {
                 await client.Cypher
                             .Match("(h:Hotel)")
-                            .Where((Hotel h) => h.Name == name)
-                            .AndWhere((Hotel h) => h.Location == location)
+                            .Where((Hotel h) => h.Name == hname)
+                            .AndWhere((Hotel h) => h.Location == hlocation)
                             .Create("(person:Person $person)")
                             .WithParam("person", person)
                             .Merge("(person)-[r:WORKS]->(h)")
                             .ExecuteWithoutResultsAsync();
 
                 MessageBox.Show("Korisnik je uspesno dodat");
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             catch (Exception exc)
             {

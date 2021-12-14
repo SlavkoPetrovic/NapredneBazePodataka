@@ -41,56 +41,60 @@ namespace HotelManager.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(31, 46);
+            this.label1.Location = new System.Drawing.Point(27, 34);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 20);
+            this.label1.Size = new System.Drawing.Size(63, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Ime hotela";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 96);
+            this.label2.Location = new System.Drawing.Point(27, 72);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 20);
+            this.label2.Size = new System.Drawing.Size(40, 15);
             this.label2.TabIndex = 1;
             this.label2.Text = "Mesto";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(31, 160);
+            this.label3.Location = new System.Drawing.Point(27, 120);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 20);
+            this.label3.Size = new System.Drawing.Size(43, 15);
             this.label3.TabIndex = 2;
             this.label3.Text = "Adresa";
             // 
             // nameTxtBox
             // 
-            this.nameTxtBox.Location = new System.Drawing.Point(132, 46);
+            this.nameTxtBox.Location = new System.Drawing.Point(116, 34);
+            this.nameTxtBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.nameTxtBox.Name = "nameTxtBox";
-            this.nameTxtBox.Size = new System.Drawing.Size(125, 27);
+            this.nameTxtBox.Size = new System.Drawing.Size(110, 23);
             this.nameTxtBox.TabIndex = 3;
             // 
             // LocationTxtBox
             // 
-            this.LocationTxtBox.Location = new System.Drawing.Point(132, 96);
+            this.LocationTxtBox.Location = new System.Drawing.Point(116, 72);
+            this.LocationTxtBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LocationTxtBox.Name = "LocationTxtBox";
-            this.LocationTxtBox.Size = new System.Drawing.Size(125, 27);
+            this.LocationTxtBox.Size = new System.Drawing.Size(110, 23);
             this.LocationTxtBox.TabIndex = 4;
             // 
             // addressTxtBox
             // 
-            this.addressTxtBox.Location = new System.Drawing.Point(132, 157);
+            this.addressTxtBox.Location = new System.Drawing.Point(116, 118);
+            this.addressTxtBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.addressTxtBox.Name = "addressTxtBox";
-            this.addressTxtBox.Size = new System.Drawing.Size(125, 27);
+            this.addressTxtBox.Size = new System.Drawing.Size(110, 23);
             this.addressTxtBox.TabIndex = 5;
             // 
             // AddHotelBtn
             // 
-            this.AddHotelBtn.Location = new System.Drawing.Point(106, 326);
+            this.AddHotelBtn.Location = new System.Drawing.Point(93, 244);
+            this.AddHotelBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AddHotelBtn.Name = "AddHotelBtn";
-            this.AddHotelBtn.Size = new System.Drawing.Size(94, 34);
+            this.AddHotelBtn.Size = new System.Drawing.Size(82, 26);
             this.AddHotelBtn.TabIndex = 6;
             this.AddHotelBtn.Text = "Dodaj Hotel";
             this.AddHotelBtn.UseVisualStyleBackColor = true;
@@ -98,9 +102,9 @@ namespace HotelManager.Forms
             // 
             // AddHotelForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(318, 403);
+            this.ClientSize = new System.Drawing.Size(278, 302);
             this.Controls.Add(this.AddHotelBtn);
             this.Controls.Add(this.addressTxtBox);
             this.Controls.Add(this.LocationTxtBox);
@@ -108,6 +112,7 @@ namespace HotelManager.Forms
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AddHotelForm";
             this.Text = "AddHotelForm";
             this.Load += new System.EventHandler(this.AddHotelForm_Load);

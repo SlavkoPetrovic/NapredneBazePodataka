@@ -50,14 +50,18 @@ namespace HotelManager
 
                 
                 // moje misljenje je da salt i tokeni nisu potrebni za ovaj vid aplikacije 
-                if (person.Password == AddNewEmployeeForm.ComputeHash(passwordTxtBox.Text, new SHA256CryptoServiceProvider()))
+                if (person.Password == passwordTxtBox.Text)// AddNewEmployeeForm.ComputeHash(passwordTxtBox.Text, new SHA256CryptoServiceProvider()))
                 {
-                    Program.LoginName = person.Name; // ovo je slicno kao sto smo imali localstorage globalna je promenljiva
-                    this.Hide();
-                    var form1 = new Form1(); // ovo treba da zamenim da vidim koji je job i u zavisnosti od toga da mu ucita sta treba
-                    form1.client = client;
-                    form1.Closed += (s, args) => this.Close();
-                    form1.Show();
+                    if(person.Job == "Administrator")// ovo treba da zamenim da vidim koji je job i u zavisnosti od toga da mu ucita sta treba
+                    {
+                        Program.LoginName = person.Email; // ovo je slicno kao sto smo imali localstorage globalna je promenljiva
+                        this.Hide();
+                        var form1 = new AdminForm(); 
+                        form1.client = client;
+                        form1.Closed += (s, args) => this.Close();
+                        form1.Show();
+                    }
+
                 }
             }
             catch (Exception exc)
