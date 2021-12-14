@@ -14,5 +14,4 @@ namespace HotelManager.DomainModel
         public int PricePerNight { get; set; }
         public int NumberOfBeds { get; set; }
     }
-
 }

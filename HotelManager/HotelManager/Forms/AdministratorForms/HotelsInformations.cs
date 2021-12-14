@@ -43,8 +43,6 @@ namespace HotelManager.Forms.AdministratorForms
                                                      thing.CountWorkers.ToString() });
                 hotelListView.Items.Add(item);
             }
-            hotelListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
-            hotelListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
             hotelListView.Refresh();
 
         }

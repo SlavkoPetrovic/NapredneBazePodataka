@@ -45,9 +45,9 @@ namespace HotelManager.Forms.AdministratorForms
             this.columnHeader4});
             this.hotelListView.GridLines = true;
             this.hotelListView.HideSelection = false;
-            this.hotelListView.Location = new System.Drawing.Point(72, 76);
+            this.hotelListView.Location = new System.Drawing.Point(66, 65);
             this.hotelListView.Name = "hotelListView";
-            this.hotelListView.Size = new System.Drawing.Size(378, 338);
+            this.hotelListView.Size = new System.Drawing.Size(427, 338);
             this.hotelListView.TabIndex = 0;
             this.hotelListView.UseCompatibleStateImageBehavior = false;
             this.hotelListView.View = System.Windows.Forms.View.Details;

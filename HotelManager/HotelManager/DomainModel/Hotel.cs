@@ -12,5 +12,6 @@ namespace HotelManager.DomainModel
         public String Location{ get; set; }
         public String Address { get; set; }
         public List<Person> Recepcionari { get; set; }
+        public List<Room> Rooms { get; set; }
     }
 }
