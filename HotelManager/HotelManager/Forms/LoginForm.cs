@@ -1,4 +1,5 @@
 ﻿using HotelManager.DomainModel;
+using HotelManager.Forms.AdministratorForms;
 using Neo4jClient;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -47,12 +49,12 @@ namespace HotelManager
                 var person = queryPerson.FirstOrDefault();
 
                 
-
-                if (person.Password == passwordTxtBox.Text)//Dodati enkriptovanje dekriptovanje passworda u buducnosti
+                // moje misljenje je da salt i tokeni nisu potrebni za ovaj vid aplikacije 
+                if (person.Password == AddNewEmployeeForm.ComputeHash(passwordTxtBox.Text, new SHA256CryptoServiceProvider()))
                 {
                     Program.LoginName = person.Name; // ovo je slicno kao sto smo imali localstorage globalna je promenljiva
                     this.Hide();
-                    var form1 = new Form1();
+                    var form1 = new Form1(); // ovo treba da zamenim da vidim koji je job i u zavisnosti od toga da mu ucita sta treba
                     form1.client = client;
                     form1.Closed += (s, args) => this.Close();
                     form1.Show();

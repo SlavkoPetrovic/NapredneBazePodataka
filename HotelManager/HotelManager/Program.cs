@@ -1,3 +1,5 @@
+using HotelManager.Forms;
+using HotelManager.Forms.AdministratorForms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
