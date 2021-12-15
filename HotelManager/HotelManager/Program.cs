@@ -12,7 +12,8 @@ namespace HotelManager
     static class Program
     {
         public static string LoginName= "This is global string";
-        public static string HotelName= "This is global string";
+        public static string HotelName= "Grand";
+        public static string HotelLocation = "Pristina";
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>

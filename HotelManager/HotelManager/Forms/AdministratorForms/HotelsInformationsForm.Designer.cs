@@ -49,16 +49,10 @@ namespace HotelManager.Forms.AdministratorForms
             this.hotelListView.FullRowSelect = true;
             this.hotelListView.GridLines = true;
             this.hotelListView.HideSelection = false;
-<<<<<<< HEAD:HotelManager/HotelManager/Forms/AdministratorForms/HotelsInformations.Designer.cs
-            this.hotelListView.Location = new System.Drawing.Point(66, 65);
-            this.hotelListView.Name = "hotelListView";
-            this.hotelListView.Size = new System.Drawing.Size(427, 338);
-=======
             this.hotelListView.Location = new System.Drawing.Point(54, 43);
             this.hotelListView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.hotelListView.Name = "hotelListView";
             this.hotelListView.Size = new System.Drawing.Size(331, 254);
->>>>>>> 509a4f625482871a784c0278d90a25ed7639fd82:HotelManager/HotelManager/Forms/AdministratorForms/HotelsInformationsForm.Designer.cs
             this.hotelListView.TabIndex = 0;
             this.hotelListView.UseCompatibleStateImageBehavior = false;
             this.hotelListView.View = System.Windows.Forms.View.Details;

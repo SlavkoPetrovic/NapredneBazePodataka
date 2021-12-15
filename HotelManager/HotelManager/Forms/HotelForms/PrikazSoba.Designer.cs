@@ -31,14 +31,14 @@ namespace HotelManager.Forms.Hoteli
         {
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.listViewListaSoba = new System.Windows.Forms.ListView();
-            this.comboBoxOdabirTipaSobe = new System.Windows.Forms.ComboBox();
-            this.buttonRezervisiSobu = new System.Windows.Forms.Button();
-            this.buttonOslobodiSobu = new System.Windows.Forms.Button();
-            this.buttonProslediPosao = new System.Windows.Forms.Button();
             this.columnHeader1 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
+            this.comboBoxOdabirTipaSobe = new System.Windows.Forms.ComboBox();
+            this.buttonRezervisiSobu = new System.Windows.Forms.Button();
+            this.buttonOslobodiSobu = new System.Windows.Forms.Button();
+            this.buttonProslediPosao = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listViewListaSoba
@@ -57,6 +57,27 @@ namespace HotelManager.Forms.Hoteli
             this.listViewListaSoba.TabIndex = 1;
             this.listViewListaSoba.UseCompatibleStateImageBehavior = false;
             this.listViewListaSoba.View = System.Windows.Forms.View.Details;
+            this.listViewListaSoba.SelectedIndexChanged += new System.EventHandler(this.listViewListaSoba_SelectedIndexChanged);
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Sprat";
+            this.columnHeader1.Width = 150;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Broj sobe";
+            this.columnHeader2.Width = 150;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Broj kreveta";
+            this.columnHeader3.Width = 150;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Cena po nocenju";
+            this.columnHeader4.Width = 150;
             // 
             // comboBoxOdabirTipaSobe
             // 
@@ -101,26 +122,6 @@ namespace HotelManager.Forms.Hoteli
             this.buttonProslediPosao.Text = "Prosledi Posao";
             this.buttonProslediPosao.UseVisualStyleBackColor = true;
             this.buttonProslediPosao.Click += new System.EventHandler(this.buttonProslediPosao_Click);
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Sprat";
-            this.columnHeader1.Width = 150;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Broj sobe";
-            this.columnHeader2.Width = 150;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Broj kreveta";
-            this.columnHeader3.Width = 150;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Cena po nocenju";
-            this.columnHeader4.Width = 150;
             // 
             // PrikazSoba
             // 
