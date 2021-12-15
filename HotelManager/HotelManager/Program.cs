@@ -1,6 +1,7 @@
 using HotelManager.Forms;
 using HotelManager.Forms.AdministratorForms;
 using HotelManager.Forms.HotelForms;
+using HotelManager.Forms.Hoteli;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,7 +24,7 @@ namespace HotelManager
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new HotelManager.Forms.Hoteli.PrikazSoba());
+            Application.Run(new LoginForm());
         }
     }
 }

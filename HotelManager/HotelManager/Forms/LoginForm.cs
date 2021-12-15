@@ -50,7 +50,7 @@ namespace HotelManager
 
                 
                 // moje misljenje je da salt i tokeni nisu potrebni za ovaj vid aplikacije 
-                if (person.Password == passwordTxtBox.Text)// AddNewEmployeeForm.ComputeHash(passwordTxtBox.Text, new SHA256CryptoServiceProvider()))
+                if (person.Password ==  AddNewEmployeeForm.ComputeHash(passwordTxtBox.Text, new SHA256CryptoServiceProvider()))
                 {
                     if(person.Job == "Administrator")// ovo treba da zamenim da vidim koji je job i u zavisnosti od toga da mu ucita sta treba
                     {

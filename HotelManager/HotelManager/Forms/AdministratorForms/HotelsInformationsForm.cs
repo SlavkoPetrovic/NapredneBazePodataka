@@ -46,6 +46,7 @@ namespace HotelManager.Forms.AdministratorForms
             }
             hotelListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             hotelListView.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+           // hotelListView.Columns[0].Width = 0;
             hotelListView.Refresh();
 
         }

@@ -12,10 +12,10 @@ using Neo4jClient;
 
 namespace HotelManager.Forms.Hoteli
 {
-    public partial class PrikazSoba : Form
+    public partial class PrikazSobaForm : Form
     {
         public GraphClient client;
-        public PrikazSoba()
+        public PrikazSobaForm()
         {
             InitializeComponent();
         }
@@ -80,10 +80,9 @@ namespace HotelManager.Forms.Hoteli
             else
             {
                 var queryRooms = await client.Cypher
-                               .Match("(h:Hotel)", "(r:Room)", "()-[r2: RESERVED]->(r)")
-                               .OptionalMatch("(r)-[r1: PARTOF]->(h)")
-                               .Where((Hotel h) => h.Name == hotelName)
-                               .AndWhere((Hotel h) => h.Location == hotelLocation)
+                               .Match("(h:Hotel)", "(r:Room)", "(r)-[r1: PARTOF]->(h)", "(p)-[r2: RESERVED]->(r)")
+                               //.Where((Hotel h) => h.Name == hotelName)
+                               //.AndWhere((Hotel h) => h.Location == hotelLocation)
                                .Return(r => r.As<Room>())
                                .OrderBy("(r.Floor)", "(r.Number)")
                                .ResultsAsync;
@@ -110,7 +109,7 @@ namespace HotelManager.Forms.Hoteli
         {
             if (comboBoxOdabirTipaSobe.SelectedIndex == 0)
             {
-                checkReserved(3);
+                checkReserved(2);
             }
             //ispitaj dal je slobodna soba prvo
             //otvori forma za rezervaciju sobe
@@ -125,9 +124,9 @@ namespace HotelManager.Forms.Hoteli
         {
             //ispituje dal je soba sa id room slobodna
             var queryRooms = await client.Cypher
-                               .Match("(g:Guest)","(r:Room)", "(p)-[: RESERVED]->(r)")
-                               .Where((Room r) => r.ID == room)
-                               .Return(g => g.As<Guest>())
+                               .Match("(p:Person)","(r:Room)", "(p)-[r1:RESERVED]->(r)")
+                               .Where((Room r) => r.ID == 1)
+                               .Return(p => p.As<Guest>())
                                .ResultsAsync;
             var g = queryRooms.ToList();
             foreach (Guest r in g)
@@ -137,10 +136,16 @@ namespace HotelManager.Forms.Hoteli
         }
         private void buttonOslobodiSobu_Click(object sender, EventArgs e)
         {
-            if (comboBoxOdabirTipaSobe.SelectedIndex == 1)
-                return;
-                //ispitaj dal je zauzeta
-            //otvori forma za oslobadjanje sobe
+            var queryRooms =  client.Cypher
+                               .Match("(p:Person)", "(r:Room)", "(p)-[r1:RESERVED]->(r)")
+                               .Where((Room r) => r.ID == 1)
+                               .Return(p => p.As<Guest>())
+                               .ResultsAsync;
+            var g = queryRooms.Result.ToList();
+            foreach (Guest r in g)
+            {
+                MessageBox.Show(r.Name);
+            }
         }
 
         private void buttonProslediPosao_Click(object sender, EventArgs e)

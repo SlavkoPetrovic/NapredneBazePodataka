@@ -1,7 +1,7 @@
 ﻿
 namespace HotelManager.Forms.Hoteli
 {
-    partial class PrikazSoba
+    partial class PrikazSobaForm
     {
         /// <summary>
         /// Required designer variable.
