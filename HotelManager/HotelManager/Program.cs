@@ -1,5 +1,6 @@
 using HotelManager.Forms;
 using HotelManager.Forms.AdministratorForms;
+using HotelManager.Forms.Gosti;
 using HotelManager.Forms.HotelForms;
 using HotelManager.Forms.Hoteli;
 using System;
@@ -24,7 +25,7 @@ namespace HotelManager
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+            Application.Run(new AddGuestFrom());
         }
     }
 }
