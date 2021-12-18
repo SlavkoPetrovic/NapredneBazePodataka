@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using HotelManager.DomainModel;
 using Neo4jClient;
+using HotelManager.Forms.Gosti;
 
 namespace HotelManager.Forms.Hoteli
 {
@@ -51,10 +52,12 @@ namespace HotelManager.Forms.Hoteli
                 var rooms = queryRooms.ToList();
                 foreach (Room r in rooms)
                 {
-                    ListViewItem item = new ListViewItem(new string[] { r.Floor.ToString(), r.Number.ToString(), r.NumberOfBeds.ToString(), r.PricePerNight.ToString() });
+                    ListViewItem item = new ListViewItem(new string[] {r.Floor.ToString(), r.Number.ToString(), r.NumberOfBeds.ToString(), r.PricePerNight.ToString(), r.ID.ToString() });
                     listViewListaSoba.Items.Add(item);
                 }
+                listViewListaSoba.Columns[4].Width = 0;
                 buttonRezervisiSobu.Enabled = true;
+                buttonPrikaziGosta.Enabled = true;
                 buttonOslobodiSobu.Enabled = true;
             }
             else if(comboBoxOdabirTipaSobe.SelectedIndex ==1)
@@ -70,19 +73,21 @@ namespace HotelManager.Forms.Hoteli
                 var rooms = queryRooms.ToList();
                 foreach (Room r in rooms)
                 {
-                    ListViewItem item = new ListViewItem(new string[] { r.Floor.ToString(), r.Number.ToString(), r.NumberOfBeds.ToString(), r.PricePerNight.ToString() });
+                    ListViewItem item = new ListViewItem(new string[] { r.Floor.ToString(), r.Number.ToString(), r.NumberOfBeds.ToString(), r.PricePerNight.ToString(), r.ID.ToString() });
 
                     listViewListaSoba.Items.Add(item);
                 }
+                listViewListaSoba.Columns[4].Width = 0;
                 buttonRezervisiSobu.Enabled = true;
                 buttonOslobodiSobu.Enabled = false;
+                buttonPrikaziGosta.Enabled = false;
             }
             else
             {
                 var queryRooms = await client.Cypher
                                .Match("(h:Hotel)", "(r:Room)", "(r)-[r1: PARTOF]->(h)", "(p)-[r2: RESERVED]->(r)")
-                               //.Where((Hotel h) => h.Name == hotelName)
-                               //.AndWhere((Hotel h) => h.Location == hotelLocation)
+                               .Where((Hotel h) => h.Name == hotelName)
+                               .AndWhere((Hotel h) => h.Location == hotelLocation)
                                .Return(r => r.As<Room>())
                                .OrderBy("(r.Floor)", "(r.Number)")
                                .ResultsAsync;
@@ -90,11 +95,13 @@ namespace HotelManager.Forms.Hoteli
                 foreach (Room r in rooms)
                 {
 
-                    ListViewItem item = new ListViewItem(new string[] { r.Floor.ToString(), r.Number.ToString(), r.NumberOfBeds.ToString(), r.PricePerNight.ToString() });
+                    ListViewItem item = new ListViewItem(new string[] {r.Floor.ToString(), r.Number.ToString(), r.NumberOfBeds.ToString(), r.PricePerNight.ToString(), r.ID.ToString() });
                     listViewListaSoba.Items.Add(item);
                 }
+                listViewListaSoba.Columns[4].Width = 0;
                 buttonOslobodiSobu.Enabled = true;
                 buttonRezervisiSobu.Enabled = false;
+                buttonPrikaziGosta.Enabled = true;
             }
             //listViewListaSoba.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             //listViewListaSoba.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
@@ -107,44 +114,48 @@ namespace HotelManager.Forms.Hoteli
 
         private void buttonRezervisiSobu_Click(object sender, EventArgs e)
         {
+            int IDsobe = Int32.Parse(listViewListaSoba.SelectedItems[0].SubItems[4].Text);
             if (comboBoxOdabirTipaSobe.SelectedIndex == 0)
             {
-                checkReserved(2);
+                var queryRooms = client.Cypher
+                             .Match("(p:Person)", "(r:Room)", "(p)-[r1:RESERVED]->(r)")
+                             .Where((Room r) => r.ID == IDsobe)
+                             .Return(p => p.As<Guest>())
+                             .ResultsAsync;
+                var g = queryRooms.Result.ToList();
+                if (g.Count>0)
+                {
+                    MessageBox.Show("Soba je zauzeta");
+                    return;
+                }
             }
-            //ispitaj dal je slobodna soba prvo
-            //otvori forma za rezervaciju sobe
-            /*AddRoomForm form1 = new AddRoomForm();
+            AddGuestFrom form1 = new AddGuestFrom(IDsobe);
             form1.client = client;
             if (form1.ShowDialog() == DialogResult.OK)
             {
-                PopulateInformation();
-            }*/
-        }
-        private async void checkReserved(int room)
-        {
-            //ispituje dal je soba sa id room slobodna
-            var queryRooms = await client.Cypher
-                               .Match("(p:Person)","(r:Room)", "(p)-[r1:RESERVED]->(r)")
-                               .Where((Room r) => r.ID == 1)
-                               .Return(p => p.As<Guest>())
-                               .ResultsAsync;
-            var g = queryRooms.ToList();
-            foreach (Guest r in g)
-            {
-                MessageBox.Show(r.Name);
+                PopulateInformations();
             }
+
         }
         private void buttonOslobodiSobu_Click(object sender, EventArgs e)
         {
+            int IDsobe = Int32.Parse(listViewListaSoba.SelectedItems[0].SubItems[4].Text);
             var queryRooms =  client.Cypher
                                .Match("(p:Person)", "(r:Room)", "(p)-[r1:RESERVED]->(r)")
-                               .Where((Room r) => r.ID == 1)
+                               .Where((Room r) => r.ID == IDsobe)
                                .Return(p => p.As<Guest>())
                                .ResultsAsync;
             var g = queryRooms.Result.ToList();
-            foreach (Guest r in g)
+            if (g.Count == 0)
             {
-                MessageBox.Show(r.Name);
+                MessageBox.Show("Soba nije rezervisana");
+                return;
+            }
+            AddGuestFrom form1 = new AddGuestFrom(IDsobe);
+            form1.client = client;
+            if (form1.ShowDialog() == DialogResult.OK)
+            {
+                PopulateInformations();
             }
         }
 
@@ -153,9 +164,28 @@ namespace HotelManager.Forms.Hoteli
             //otvori forma za prosledjivanje poslova
         }
 
-        private void listViewListaSoba_SelectedIndexChanged(object sender, EventArgs e)
+        private void buttonPrikaziGosta_Click(object sender, EventArgs e)
         {
-
+            int IDsobe = Int32.Parse(listViewListaSoba.SelectedItems[0].SubItems[4].Text);
+            var queryRooms = client.Cypher
+                               .Match("(p:Person)", "(r:Room)", "(p)-[r1:RESERVED]->(r)")
+                               .Where((Room r) => r.ID == IDsobe)
+                               .Return(p => p.As<Guest>())
+                               .ResultsAsync;
+            var g = queryRooms.Result.ToList();
+            if (g.Count == 0)
+            {
+                MessageBox.Show("Soba nije rezervisana");
+                return;
+            }
+            MessageBox.Show("Gost: \n" + "Ime: " + g[0].Name + "\n" + "Prezime: " + g[0].Surname + "\n" + "Dokument: " + g[0].DocumentType + "\n");
+            Guest gost = g[0];
+            GostInformacije form1 = new GostInformacije(gost);
+            form1.client = client;
+            if (form1.ShowDialog() == DialogResult.OK)
+            {
+                PopulateInformations();
+            }
         }
     }
 }

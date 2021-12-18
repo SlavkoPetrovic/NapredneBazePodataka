@@ -35,10 +35,12 @@ namespace HotelManager.Forms.Hoteli
             this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
+            this.ID = new System.Windows.Forms.ColumnHeader();
             this.comboBoxOdabirTipaSobe = new System.Windows.Forms.ComboBox();
             this.buttonRezervisiSobu = new System.Windows.Forms.Button();
             this.buttonOslobodiSobu = new System.Windows.Forms.Button();
             this.buttonProslediPosao = new System.Windows.Forms.Button();
+            this.buttonPrikaziGosta = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listViewListaSoba
@@ -47,7 +49,8 @@ namespace HotelManager.Forms.Hoteli
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
-            this.columnHeader4});
+            this.columnHeader4,
+            this.ID});
             this.listViewListaSoba.FullRowSelect = true;
             this.listViewListaSoba.GridLines = true;
             this.listViewListaSoba.HideSelection = false;
@@ -57,7 +60,6 @@ namespace HotelManager.Forms.Hoteli
             this.listViewListaSoba.TabIndex = 1;
             this.listViewListaSoba.UseCompatibleStateImageBehavior = false;
             this.listViewListaSoba.View = System.Windows.Forms.View.Details;
-            this.listViewListaSoba.SelectedIndexChanged += new System.EventHandler(this.listViewListaSoba_SelectedIndexChanged);
             // 
             // columnHeader1
             // 
@@ -78,6 +80,10 @@ namespace HotelManager.Forms.Hoteli
             // 
             this.columnHeader4.Text = "Cena po nocenju";
             this.columnHeader4.Width = 150;
+            // 
+            // ID
+            // 
+            this.ID.Text = "ID";
             // 
             // comboBoxOdabirTipaSobe
             // 
@@ -109,7 +115,7 @@ namespace HotelManager.Forms.Hoteli
             this.buttonOslobodiSobu.Name = "buttonOslobodiSobu";
             this.buttonOslobodiSobu.Size = new System.Drawing.Size(153, 29);
             this.buttonOslobodiSobu.TabIndex = 4;
-            this.buttonOslobodiSobu.Text = "Oslobodi Sobu";
+            this.buttonOslobodiSobu.Text = "Prikazi rezervaciju";
             this.buttonOslobodiSobu.UseVisualStyleBackColor = true;
             this.buttonOslobodiSobu.Click += new System.EventHandler(this.buttonOslobodiSobu_Click);
             // 
@@ -123,17 +129,28 @@ namespace HotelManager.Forms.Hoteli
             this.buttonProslediPosao.UseVisualStyleBackColor = true;
             this.buttonProslediPosao.Click += new System.EventHandler(this.buttonProslediPosao_Click);
             // 
-            // PrikazSoba
+            // buttonPrikaziGosta
+            // 
+            this.buttonPrikaziGosta.Location = new System.Drawing.Point(621, 259);
+            this.buttonPrikaziGosta.Name = "buttonPrikaziGosta";
+            this.buttonPrikaziGosta.Size = new System.Drawing.Size(152, 31);
+            this.buttonPrikaziGosta.TabIndex = 6;
+            this.buttonPrikaziGosta.Text = "Prikazi Gosta";
+            this.buttonPrikaziGosta.UseVisualStyleBackColor = true;
+            this.buttonPrikaziGosta.Click += new System.EventHandler(this.buttonPrikaziGosta_Click);
+            // 
+            // PrikazSobaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonPrikaziGosta);
             this.Controls.Add(this.buttonProslediPosao);
             this.Controls.Add(this.buttonOslobodiSobu);
             this.Controls.Add(this.buttonRezervisiSobu);
             this.Controls.Add(this.comboBoxOdabirTipaSobe);
             this.Controls.Add(this.listViewListaSoba);
-            this.Name = "PrikazSoba";
+            this.Name = "PrikazSobaForm";
             this.Text = "Hotel";
             this.Load += new System.EventHandler(this.PrikazSoba_Load);
             this.ResumeLayout(false);
@@ -152,5 +169,7 @@ namespace HotelManager.Forms.Hoteli
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader ID;
+        private System.Windows.Forms.Button buttonPrikaziGosta;
     }
 }
