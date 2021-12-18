@@ -117,5 +117,67 @@ namespace HotelManager.Forms.Gosti
 
             }
         }
+
+        private async void button1_Click(object sender, EventArgs e)
+        {
+            var ime = "Jovan"; // ovo zameniti umesto imena IDGUEST ili posaljite umesto imena room ID i zamenite ovo dole
+
+            var query1 = await client.Cypher
+                                     .Match("(p:Person {Name:'" + ime + "'}) , (p)-[r:RESERVED]->(soba) , (soba)-[r1:NEEDS]->(majstor)")
+                                     .Return((p, r,soba,r1) => new
+                                     {
+                                         Osoba = p.As<Guest>(),
+                                         Rezervacija = r.As<ReservedRelationship>(),
+                                         Soba = soba.As<Room>(),
+                                         Popravke = r1.CollectAs<NeedsRelationship>()
+                                     })
+                                     .ResultsAsync;
+
+            var test = query1.FirstOrDefault(); // vratice mi duplikat iz nekog razloga zato neka ga ovako 
+
+            if(test != null && test.Osoba != null && test.Rezervacija !=null && test.Soba != null)
+            {
+                int totalPrice = ((int)(test.Rezervacija.CheckOut - test.Rezervacija.CheckIn).TotalDays) * test.Soba.PricePerNight;
+                if (test.Popravke != null)
+                
+                    foreach (var popravke in test.Popravke)
+                    {
+                        totalPrice = totalPrice + popravke.DamagePrice;
+                    }
+                MessageBox.Show("Ovoliko je duzan covek: " + totalPrice);
+            }
+
+
+
+        }
+
+        private async void button2_Click(object sender, EventArgs e)
+        {
+            var ime = "Jovan"; // isto vazi kao za prethodni post
+            var deletePath = @"D:\NapredneBazePodataka\HotelManager\HotelManager\resources\" + "1122"; // umesto 1122 ide guestID!!!!!!!!!
+            try // ovo ce obrise gosta i sve njegove veze 
+            {
+
+                File.Delete(deletePath);
+                await client.Cypher
+                            .Match("(p:Person {Name:'" + ime + "'})")
+                            .DetachDelete("(p)")
+                            .ExecuteWithoutResultsAsync();
+                await client.Cypher // ovo ce obrise needs veze
+                            .Match("(room:Room {ID:" + 0 + "}), (r)-[r1:NEEDS]->(p)")
+                            .Delete("(r1)").ExecuteWithoutResultsAsync();
+
+                MessageBox.Show("Uspesno ste obrisali rezervaciju!");
+
+            }
+            catch(Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+
+
+
+
+        }
     }
 }

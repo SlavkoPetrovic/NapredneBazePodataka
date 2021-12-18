@@ -46,6 +46,8 @@ namespace HotelManager.Forms.Gosti
             this.label7 = new System.Windows.Forms.Label();
             this.addReservation = new System.Windows.Forms.Button();
             this.personPictureBox = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.personPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -194,11 +196,33 @@ namespace HotelManager.Forms.Gosti
             this.personPictureBox.TabIndex = 17;
             this.personPictureBox.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(635, 68);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(128, 23);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "POKAZI RACUN";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(635, 103);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(128, 23);
+            this.button2.TabIndex = 19;
+            this.button2.Text = "ObrisiRezervaciju";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // AddGuestFrom
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(788, 458);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.personPictureBox);
             this.Controls.Add(this.addReservation);
             this.Controls.Add(this.label7);
@@ -244,5 +268,7 @@ namespace HotelManager.Forms.Gosti
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button addReservation;
         private System.Windows.Forms.PictureBox personPictureBox;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
