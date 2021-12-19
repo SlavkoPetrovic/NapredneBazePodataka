@@ -114,48 +114,57 @@ namespace HotelManager.Forms.Hoteli
 
         private void buttonRezervisiSobu_Click(object sender, EventArgs e)
         {
-            int IDsobe = Int32.Parse(listViewListaSoba.SelectedItems[0].SubItems[4].Text);
-            if (comboBoxOdabirTipaSobe.SelectedIndex == 0)
+            try
             {
+                int IDsobe = Int32.Parse(listViewListaSoba.SelectedItems[0].SubItems[4].Text);
                 var queryRooms = client.Cypher
-                             .Match("(p:Person)", "(r:Room)", "(p)-[r1:RESERVED]->(r)")
-                             .Where((Room r) => r.ID == IDsobe)
-                             .Return(p => p.As<Guest>())
-                             .ResultsAsync;
+                                 .Match("(p:Person)", "(r:Room)", "(p)-[r1:RESERVED]->(r)")
+                                 .Where((Room r) => r.ID == IDsobe)
+                                 .Return(p => p.As<Guest>())
+                                 .ResultsAsync;
                 var g = queryRooms.Result.ToList();
-                if (g.Count>0)
+                if (g.Count > 0)
                 {
-                    MessageBox.Show("Soba je zauzeta");
-                    return;
+                   MessageBox.Show("Soba je zauzeta");
+                   return;
+                }
+                AddGuestFrom form1 = new AddGuestFrom(IDsobe);
+                form1.client = client;
+                if (form1.ShowDialog() == DialogResult.OK)
+                {
+                    PopulateInformations();
                 }
             }
-            AddGuestFrom form1 = new AddGuestFrom(IDsobe);
-            form1.client = client;
-            if (form1.ShowDialog() == DialogResult.OK)
+            catch (Exception exc)
             {
-                PopulateInformations();
+                MessageBox.Show(exc.Message);
             }
-
         }
         private void buttonOslobodiSobu_Click(object sender, EventArgs e)
         {
-            int IDsobe = Int32.Parse(listViewListaSoba.SelectedItems[0].SubItems[4].Text);
-            var queryRooms =  client.Cypher
-                               .Match("(p:Person)", "(r:Room)", "(p)-[r1:RESERVED]->(r)")
-                               .Where((Room r) => r.ID == IDsobe)
-                               .Return(p => p.As<Guest>())
-                               .ResultsAsync;
-            var g = queryRooms.Result.ToList();
-            if (g.Count == 0)
+            try
             {
-                MessageBox.Show("Soba nije rezervisana");
-                return;
+                int IDsobe = Int32.Parse(listViewListaSoba.SelectedItems[0].SubItems[4].Text);
+                var queryRooms = client.Cypher
+                                   .Match("(p:Person)", "(r:Room)", "(p)-[r1:RESERVED]->(r)")
+                                   .Where((Room r) => r.ID == IDsobe)
+                                   .Return(p => p.As<Guest>())
+                                   .ResultsAsync;
+                var g = queryRooms.Result.ToList();
+                if (g.Count == 0)
+                {
+                    MessageBox.Show("Soba nije rezervisana");
+                    return;
+                }
+                GostInformacije form1 = new GostInformacije(g[0], IDsobe, client);
+                if (form1.ShowDialog() == DialogResult.OK)
+                {
+                    PopulateInformations();
+                }
             }
-            AddGuestFrom form1 = new AddGuestFrom(IDsobe);
-            form1.client = client;
-            if (form1.ShowDialog() == DialogResult.OK)
+            catch (Exception exc)
             {
-                PopulateInformations();
+                MessageBox.Show(exc.Message);
             }
         }
 
@@ -166,25 +175,29 @@ namespace HotelManager.Forms.Hoteli
 
         private void buttonPrikaziGosta_Click(object sender, EventArgs e)
         {
-            int IDsobe = Int32.Parse(listViewListaSoba.SelectedItems[0].SubItems[4].Text);
-            var queryRooms = client.Cypher
-                               .Match("(p:Person)", "(r:Room)", "(p)-[r1:RESERVED]->(r)")
-                               .Where((Room r) => r.ID == IDsobe)
-                               .Return(p => p.As<Guest>())
-                               .ResultsAsync;
-            var g = queryRooms.Result.ToList();
-            if (g.Count == 0)
+            try
             {
-                MessageBox.Show("Soba nije rezervisana");
-                return;
+                int IDsobe = Int32.Parse(listViewListaSoba.SelectedItems[0].SubItems[4].Text);
+                var queryRooms = client.Cypher
+                                   .Match("(p:Person)", "(r:Room)", "(p)-[r1:RESERVED]->(r)")
+                                   .Where((Room r) => r.ID == IDsobe)
+                                   .Return(p => p.As<Guest>())
+                                   .ResultsAsync;
+                var g = queryRooms.Result.ToList();
+                if (g.Count == 0)
+                {
+                    MessageBox.Show("Soba nije rezervisana");
+                    return;
+                }
+                GostInformacije form1 = new GostInformacije(g[0], IDsobe, client);
+                if (form1.ShowDialog() == DialogResult.OK)
+                {
+                    PopulateInformations();
+                }
             }
-            MessageBox.Show("Gost: \n" + "Ime: " + g[0].Name + "\n" + "Prezime: " + g[0].Surname + "\n" + "Dokument: " + g[0].DocumentType + "\n");
-            Guest gost = g[0];
-            GostInformacije form1 = new GostInformacije(gost);
-            form1.client = client;
-            if (form1.ShowDialog() == DialogResult.OK)
+            catch (Exception exc)
             {
-                PopulateInformations();
+                MessageBox.Show(exc.Message);
             }
         }
     }

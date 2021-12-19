@@ -11,8 +11,4 @@
     <PackageReference Include="Neo4jClient" Version="4.1.18" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="resources\" />
-  </ItemGroup>
-
 </Project>

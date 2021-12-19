@@ -4,7 +4,7 @@ Slavko:
 		
 Natalija:
 		
-		Pregled svih soba hotela, pregled rezerviosanih, kada se klikne prikaze gosta itd, rezervacija soba
+		Pregled svih soba hotela, pregled rezerviosanih, kada se klikne prikaze gosta itd, rezervacija soba, izmena gosta
 
 Aleksandra:
 		
