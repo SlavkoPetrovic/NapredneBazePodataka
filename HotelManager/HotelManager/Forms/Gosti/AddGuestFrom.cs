@@ -63,6 +63,7 @@ namespace HotelManager.Forms.Gosti
                             .WithParam("person", person)
                             .Merge("(person)-[q:RESERVED{CheckIn: date({day:"+r.CheckIn.Day +", month: "+r.CheckIn.Month+",  year: "+r.CheckIn.Year +"})" +
                                                                ",CheckOut: date({day:"+r.CheckOut.Day + ", month: " + r.CheckOut.Month + ",  year: " + r.CheckOut.Year + "})}]->(r)")
+                            
                             //upisuje u relaciji properi tipa DATE voditi racuna o tome!!!!!
                             .ExecuteWithoutResultsAsync();
 

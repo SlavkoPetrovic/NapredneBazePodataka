@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using HotelManager.DomainModel;
 using Neo4jClient;
 using HotelManager.Forms.Gosti;
+using HotelManager.Forms.RecepcionarForms;
 
 namespace HotelManager.Forms.Hoteli
 {
@@ -162,6 +163,15 @@ namespace HotelManager.Forms.Hoteli
         private void buttonProslediPosao_Click(object sender, EventArgs e)
         {
             //otvori forma za prosledjivanje poslova
+            int IDsobe = Int32.Parse(listViewListaSoba.SelectedItems[0].SubItems[4].Text);
+            // string brSobe = listViewListaSoba.SelectedItems[0].SubItems[1].Text;
+            NoviTaskForm form1 = new NoviTaskForm(IDsobe);
+            form1.client = client;  
+            if (form1.ShowDialog() == DialogResult.OK)
+            {
+                PopulateInformations();
+            }
+            
         }
 
         private void buttonPrikaziGosta_Click(object sender, EventArgs e)

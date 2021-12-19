@@ -3,6 +3,7 @@ using HotelManager.Forms.AdministratorForms;
 using HotelManager.Forms.Gosti;
 using HotelManager.Forms.HotelForms;
 using HotelManager.Forms.Hoteli;
+using HotelManager.Forms.RecepcionarForms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
