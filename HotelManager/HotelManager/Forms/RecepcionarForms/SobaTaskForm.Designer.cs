@@ -49,6 +49,7 @@ namespace HotelManager.Forms.RecepcionarForms
             this.Controls.Add(this.listView1);
             this.Name = "SobaTaskForm";
             this.Text = "NoviTaskForm";
+            this.Load += new System.EventHandler(this.SobaTaskForm_Load);
             this.ResumeLayout(false);
 
         }

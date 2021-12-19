@@ -26,7 +26,7 @@ namespace HotelManager
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new PrikazSobaForm());
+            Application.Run(new LoginForm());
         }
     }
 }

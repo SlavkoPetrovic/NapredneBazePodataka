@@ -32,14 +32,17 @@ namespace HotelManager.Forms.RecepcionarForms
               
 
                 var str = "";
+                var newId = 0;
                
                 var query = await client.Cypher.Match("(p:Person)", "(r:Room)", "(r) -[r1:NEEDS]->(p)")
                                          .Return(() => Neo4jClient.Cypher.Return.As<int>("MAX(r1.ID)"))
                                          .ResultsAsync;
-
-                var listID = query.ToList();
-                var newId = listID[0] + 1;
-                MessageBox.Show(newId.ToString());
+                if(query !=null)
+                {
+                    var listID = query.ToList();
+                    newId = listID[0] + 1;
+                    MessageBox.Show(newId.ToString());
+                }
 
                 await client.Cypher
                                       .Match("(h:Hotel)", "(p:Person)", "(r:Room)", "(r) -[r1:PARTOF]->(h)", "(p)-[r2:WORKS]->(h)")

@@ -16,5 +16,10 @@ namespace HotelManager.Forms.RecepcionarForms
         {
             InitializeComponent();
         }
+
+        private void SobaTaskForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -75,7 +75,6 @@ namespace HotelManager.Forms.RecepcionarForms
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "Recepcionar",
             "Majstor",
             "Sobarica"});
             this.comboBox1.Location = new System.Drawing.Point(238, 208);

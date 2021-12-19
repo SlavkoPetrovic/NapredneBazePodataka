@@ -1,5 +1,6 @@
 ﻿using HotelManager.DomainModel;
 using HotelManager.Forms.AdministratorForms;
+using HotelManager.Forms.RecepcionarForms;
 using Neo4jClient;
 using System;
 using System.Collections.Generic;
@@ -40,23 +41,51 @@ namespace HotelManager
             try
             {
                 var queryPerson = await client.Cypher
-                                 .Match("(n:Person)")
-                                 .Where((Person n) => n.Email == emailTxtBox.Text)
-                                 .Return(n => n.As<Person>())
+                                 .Match("(n:Person{Email: '"+emailTxtBox.Text+"'})")
+                                 .OptionalMatch("(p)-[r]->(h:Hotel)")
+                                 .Return((n,h) => new
+                                 {
+                                     Osoba = n.As<Person>(),
+                                     Hotel = h.As<Hotel>()
+                                 })
                                  .ResultsAsync;
 
 
                 var person = queryPerson.FirstOrDefault();
 
-                
-                // moje misljenje je da salt i tokeni nisu potrebni za ovaj vid aplikacije 
-                if (person.Password ==  AddNewEmployeeForm.ComputeHash(passwordTxtBox.Text, new SHA256CryptoServiceProvider()))
+
+
+
+               // moje misljenje je da salt i tokeni nisu potrebni za ovaj vid aplikacije
+                if (person.Osoba.Password == AddNewEmployeeForm.ComputeHash(passwordTxtBox.Text, new SHA256CryptoServiceProvider()))
                 {
-                    if(person.Job == "Administrator")// ovo treba da zamenim da vidim koji je job i u zavisnosti od toga da mu ucita sta treba
+                    if (person.Osoba.Job == "Administrator")// ovo treba da zamenim da vidim koji je job i u zavisnosti od toga da mu ucita sta treba
                     {
-                        Program.LoginName = person.Email; // ovo je slicno kao sto smo imali localstorage globalna je promenljiva
+                        Program.LoginName = person.Osoba.Email; // ovo je slicno kao sto smo imali localstorage globalna je promenljiva
                         this.Hide();
-                        var form1 = new AdminForm(); 
+                        var form1 = new AdminForm();
+                        form1.client = client;
+                        form1.Closed += (s, args) => this.Close();
+                        form1.Show();
+                    }
+                    else if (person.Osoba.Job == "Majstor")
+                    {
+                        Program.LoginName = person.Osoba.Email;
+                        Program.HotelLocation = person.Hotel.Location;
+                        Program.HotelName = person.Hotel.Name;
+                        this.Hide();
+                        var form1 = new RadnikForm();
+                        form1.client = client;
+                        form1.Closed += (s, args) => this.Close();
+                        form1.Show();
+                    }
+                    else if (person.Osoba.Job == "Sobarica")
+                    {
+                        Program.LoginName = person.Osoba.Email;
+                        Program.HotelLocation = person.Hotel.Location;
+                        Program.HotelName = person.Hotel.Name;
+                        this.Hide();
+                        var form1 = new RadnikForm();
                         form1.client = client;
                         form1.Closed += (s, args) => this.Close();
                         form1.Show();
@@ -73,5 +102,12 @@ namespace HotelManager
 
         }
 
+        private void passwordTxtBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode ==Keys.Enter)
+            {
+                LoginBtn_Click(this, new EventArgs());
+            }
+        }
     }
 }
