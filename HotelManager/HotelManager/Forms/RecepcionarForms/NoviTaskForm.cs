@@ -41,7 +41,6 @@ namespace HotelManager.Forms.RecepcionarForms
                 {
                     var listID = query.ToList();
                     newId = listID[0] + 1;
-                    MessageBox.Show(newId.ToString());
                 }
 
                 await client.Cypher

@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using HotelManager.DomainModel;
+using HotelManager.Forms.RecepcionarForms;
 using Neo4jClient;
 
 namespace HotelManager.Forms.Gosti
@@ -180,6 +181,23 @@ namespace HotelManager.Forms.Gosti
             catch (Exception exc)
             {
                 MessageBox.Show(exc.Message);
+            }
+        }
+
+        private async void button3_Click(object sender, EventArgs e)
+        {
+            var query1 = await client.Cypher
+                                     .Match("(p:Person {ID:" + gost.ID + "}) , (p)-[r:RESERVED]->(soba) ")
+                                     .Return(soba => soba.As<Room>())
+                                     .ResultsAsync;
+
+            var s = query1.ToList(); 
+            int IDsobe = Int32.Parse(s[0].ID.ToString());
+            SobaTaskForm form1 = new SobaTaskForm(IDsobe);
+            form1.client = client;
+            if (form1.ShowDialog() == DialogResult.OK)
+            {
+               //PopulateInformations();
             }
         }
     }

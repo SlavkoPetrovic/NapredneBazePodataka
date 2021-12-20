@@ -48,6 +48,7 @@ namespace HotelManager.Forms.Gosti
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.docTypeCmbBox = new System.Windows.Forms.ComboBox();
+            this.button3 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.personPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -228,11 +229,22 @@ namespace HotelManager.Forms.Gosti
             this.docTypeCmbBox.Size = new System.Drawing.Size(151, 28);
             this.docTypeCmbBox.TabIndex = 20;
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(635, 535);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(146, 30);
+            this.button3.TabIndex = 39;
+            this.button3.Text = "Troskovi sobe";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // GostInformacije
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(914, 600);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.personPictureBox);
@@ -283,5 +295,6 @@ namespace HotelManager.Forms.Gosti
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox docTypeCmbBox;
+        private System.Windows.Forms.Button button3;
     }
 }
