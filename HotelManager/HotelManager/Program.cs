@@ -15,8 +15,8 @@ namespace HotelManager
     static class Program
     {
         public static string LoginName= "This is global string";
-        public static string HotelName= "Grand";
-        public static string HotelLocation = "Pristina";
+        public static string HotelName= "HotelNAme";
+        public static string HotelLocation = "HotelLocation ";
         /// <summary>
         ///  The main entry point for the application.
         /// </summary>
@@ -26,7 +26,7 @@ namespace HotelManager
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginForm());
+            Application.Run(new PrikazSobaForm());
         }
     }
 }

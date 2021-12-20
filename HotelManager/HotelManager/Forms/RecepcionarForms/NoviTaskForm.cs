@@ -29,25 +29,31 @@ namespace HotelManager.Forms.RecepcionarForms
         {
             try
             {
-              
+
 
                 var str = "";
-                var newId = 0;
-               
-                var query = await client.Cypher.Match("(p:Person)", "(r:Room)", "(r) -[r1:NEEDS]->(p)")
-                                         .Return(() => Neo4jClient.Cypher.Return.As<int>("MAX(r1.ID)"))
-                                         .ResultsAsync;
-                if(query !=null)
+                int newId = 0;
+
+                var query = await client.Cypher.Match("(s)-[r1:NEEDS]->(p)")
+                                   .Return(r1 => r1.As<NeedsRelationship>())
+                                   .ResultsAsync;
+                var test = query.ToList();
+                if (test.Count != 0)
                 {
-                    var listID = query.ToList();
+                    var query1 = await client.Cypher.Match("(s)-[r1:NEEDS]->(p)")
+                                             .Return(() => Neo4jClient.Cypher.Return.As<int>("MAX(r1.ID)"))
+                                             .ResultsAsync;
+                    var listID = query1.ToList();
+                    MessageBox.Show(listID[0].ToString());
                     newId = listID[0] + 1;
                 }
+
 
                 await client.Cypher
                                       .Match("(h:Hotel)", "(p:Person)", "(r:Room)", "(r) -[r1:PARTOF]->(h)", "(p)-[r2:WORKS]->(h)")
                                       .Where((Room r) => r.ID == nmb)
                                       .AndWhere((Person p) => p.Job == comboBox1.SelectedItem.ToString())
-                                      .Merge("(r)-[q:NEEDS{ToDo:'" + tbxTask.Text + "',Done:'" + str + "',DamagePrice:'" + str + "' ,ID: '" + newId + "' }]->(p)")
+                                      .Merge("(r)-[q:NEEDS{ToDo:'" + tbxTask.Text + "',Done:'" + str + "',DamagePrice:" + 0 + " ,ID: " + newId + " }]->(p)")
                                       .ExecuteWithoutResultsAsync();
                 
                

@@ -22,7 +22,7 @@ namespace HotelManager.Forms.RecepcionarForms
         {
             InitializeComponent();
             this.id = 0;
-            PopulateInformations();
+            //PopulateInformations();
         }
         public NeedsForm(int br)
         {
@@ -32,15 +32,11 @@ namespace HotelManager.Forms.RecepcionarForms
         }
         private async void PopulateInformations()
         {
-            var queryRooms = await client.Cypher
+            await client.Cypher
                                .Match("(p:Person)", "(r)-[r1:NEEDS{ID:" + this.id + "}]->(p)")
-                               //.Set("r1.Done='" + textBox1.Text + "'")
-                               //.Set("r1.DamagePrice='" + textBox2.Text + "'")
-                               .Return(r1 => r1.As<NeedsRelationship>())
-                               .OrderBy("(r1.DamagePrice)")
-                               .ResultsAsync;
-            var tasks = queryRooms.ToList();
-            textBox3.Text = tasks[0].ToDo.ToString();
+                               .Set("r1.Done='" + textBox1.Text + "'")
+                               .Set("r1.DamagePrice=" + Int32.Parse(textBox2.Text) + "")
+                               .ExecuteWithoutResultsAsync();
         }
         private async void button1_Click(object sender, EventArgs e)
         {
@@ -49,9 +45,7 @@ namespace HotelManager.Forms.RecepcionarForms
                 await client.Cypher
                                 .Match("(p:Person)", "(r)-[r1:NEEDS{ID:" + this.id + "}]->(p)")
                                 .Set("r1.Done='" + textBox1.Text + "'")
-                                .Set("r1.DamagePrice='" + textBox2.Text + "'")
-                                //.Return(r1 => r1.As<NeedsRelationship>())
-                                .OrderBy("(r1.DamagePrice)")
+                                .Set("r1.DamagePrice=" + Int32.Parse(textBox2.Text) + "")
                                 .ExecuteWithoutResultsAsync();
                 
                 //textBox3.Text = tasks[0].ToDo.ToString();

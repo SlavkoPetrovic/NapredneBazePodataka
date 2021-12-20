@@ -23,8 +23,18 @@ namespace HotelManager.Forms.RecepcionarForms
         }
         private void RadnikForm_Load(object sender, EventArgs e)
         {
-           // Program.LoginName = "majstor@evropa.com";
-            
+            Program.LoginName = "majstor@evropa.com";
+            client = new GraphClient(new Uri("http://localhost:7474"), "neo4j", "sifra123");
+            try
+            {
+
+                client.ConnectAsync().Wait();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+
             PopulateInformations();
         }
 
