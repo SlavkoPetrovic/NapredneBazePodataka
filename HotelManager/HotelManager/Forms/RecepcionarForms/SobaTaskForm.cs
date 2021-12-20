@@ -25,13 +25,23 @@ namespace HotelManager.Forms.RecepcionarForms
         {
             InitializeComponent();
             this.brSobe = br;
+           
         }
 
         private void SobaTaskForm_Load(object sender, EventArgs e)
         {
-            Program.LoginName = "majstor@evropa.com";
-          
+            try
+            {
+
+                client.ConnectAsync().Wait();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+
             PopulateInformations();
+
         }
         private async void PopulateInformations()
         {
@@ -53,12 +63,11 @@ namespace HotelManager.Forms.RecepcionarForms
           {
                 foreach (var p in tasks)
                 {
-                    //
-                    if(String.IsNullOrEmpty(p.Done))
-                    {
+
                         ListViewItem item = new ListViewItem(new string[] { p.ToDo.ToString(), p.Done.ToString(), p.DamagePrice.ToString() });
                         listView1.Items.Add(item);
-                    }
+
+                    
                 }
                 listView1.Refresh();
             }

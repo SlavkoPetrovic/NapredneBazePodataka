@@ -21,22 +21,25 @@ namespace HotelManager.Forms.RecepcionarForms
         public NeedsForm()
         {
             InitializeComponent();
-            this.id = 0;
+ 
             //PopulateInformations();
         }
         public NeedsForm(int br)
         {
             InitializeComponent();
             this.id = br;
-
         }
         private async void PopulateInformations()
         {
-            await client.Cypher
+            var queryRooms = await client.Cypher
                                .Match("(p:Person)", "(r)-[r1:NEEDS{ID:" + this.id + "}]->(p)")
-                               .Set("r1.Done='" + textBox1.Text + "'")
-                               .Set("r1.DamagePrice=" + Int32.Parse(textBox2.Text) + "")
-                               .ExecuteWithoutResultsAsync();
+                               // .Where((Room r) => r.ID == id)
+                                 .Return(r1 => r1.As<NeedsRelationship>())
+                                .ResultsAsync;
+            var tasks = queryRooms.ToList();
+
+            
+            textBox3.Text = tasks[0].ToDo.ToString();
         }
         private async void button1_Click(object sender, EventArgs e)
         {
@@ -48,13 +51,19 @@ namespace HotelManager.Forms.RecepcionarForms
                                 .Set("r1.DamagePrice=" + Int32.Parse(textBox2.Text) + "")
                                 .ExecuteWithoutResultsAsync();
                 
-                //textBox3.Text = tasks[0].ToDo.ToString();
+
                 MessageBox.Show("Posao je izmenjen");
+                this.Close();
             }
             catch (Exception exc)
             {
                 MessageBox.Show(exc.Message);
             }
+        }
+
+        private void NeedsForm_Load(object sender, EventArgs e)
+        {
+            PopulateInformations();
         }
     }
 }
