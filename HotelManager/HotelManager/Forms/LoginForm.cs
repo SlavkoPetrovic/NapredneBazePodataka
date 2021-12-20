@@ -1,5 +1,6 @@
 ﻿using HotelManager.DomainModel;
 using HotelManager.Forms.AdministratorForms;
+using HotelManager.Forms.Hoteli;
 using HotelManager.Forms.RecepcionarForms;
 using Neo4jClient;
 using System;
@@ -42,7 +43,7 @@ namespace HotelManager
             {
                 var queryPerson = await client.Cypher
                                  .Match("(n:Person{Email: '"+emailTxtBox.Text+"'})")
-                                 .OptionalMatch("(p)-[r]->(h:Hotel)")
+                                 .OptionalMatch("(n)-[r]->(h:Hotel)")
                                  .Return((n,h) => new
                                  {
                                      Osoba = n.As<Person>(),
@@ -86,6 +87,17 @@ namespace HotelManager
                         Program.HotelName = person.Hotel.Name;
                         this.Hide();
                         var form1 = new RadnikForm();
+                        form1.client = client;
+                        form1.Closed += (s, args) => this.Close();
+                        form1.Show();
+                    }
+                    else if (person.Osoba.Job == "Recepcionar")
+                    {
+                        Program.LoginName = person.Osoba.Email;
+                        Program.HotelLocation = person.Hotel.Location;
+                        Program.HotelName = person.Hotel.Name;
+                        this.Hide();
+                        var form1 = new PrikazSobaForm();
                         form1.client = client;
                         form1.Closed += (s, args) => this.Close();
                         form1.Show();

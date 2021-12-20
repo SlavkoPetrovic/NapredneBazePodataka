@@ -26,7 +26,7 @@ namespace HotelManager
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RadnikForm());
+            Application.Run(new LoginForm());
         }
     }
 }
