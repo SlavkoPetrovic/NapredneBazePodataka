@@ -24,8 +24,6 @@ namespace HotelManager.Forms.Hoteli
 
         private void PrikazSoba_Load(object sender, EventArgs e)
         {
-            Program.HotelName = "Evropa";
-            Program.HotelLocation = "Prokuplje";
             client = new GraphClient(new Uri("http://localhost:7474"), "neo4j", "sifra123");
             try
             {

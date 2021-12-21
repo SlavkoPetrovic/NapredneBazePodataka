@@ -136,7 +136,6 @@ namespace HotelManager.Forms.Gosti
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            //nece vraca null za test.rezervacija
             var query1 = await client.Cypher
                                      .Match("(p:Person {ID:" + gost.ID + "}) , (p)-[r:RESERVED]->(soba) , (soba)-[r1:NEEDS]->(majstor)")
                                      .Return((p, r, soba, r1) => new
@@ -148,18 +147,38 @@ namespace HotelManager.Forms.Gosti
                                      })
                                      .ResultsAsync;
             
-            var test = query1.FirstOrDefault(); // vratice mi duplikat iz nekog razloga zato neka ga ovako 
-            MessageBox.Show(test.Rezervacija.CheckOut.ToString());
-            if (test != null && test.Osoba != null && test.Rezervacija != null && test.Soba != null)
+            var test = query1.FirstOrDefault(); // vratice mi duplikat iz nekog razloga zato neka ga ovako
+            if (test == null)
             {
-                int totalPrice = ((int)(test.Rezervacija.CheckOut - test.Rezervacija.CheckIn).TotalDays) * test.Soba.PricePerNight;
-                if (test.Popravke != null)
+                var query2 = await client.Cypher
+                                     .Match("(p:Person {ID:" + gost.ID + "}) , (p)-[r:RESERVED]->(soba) ")
+                                     .Return((p, r, soba) => new
+                                     {
+                                         Osoba = p.As<Guest>(),
+                                         Rezervacija = r.As<ReservedRelationship>(),
+                                         Soba = soba.As<Room>()
+                                     })
+                                     .ResultsAsync;
+                var test2 = query2.FirstOrDefault();
+                if (test2 != null && test2.Osoba != null && test2.Rezervacija != null && test2.Soba != null)
+                {
+                    int totalPrice = ((int)(test2.Rezervacija.CheckOut - test2.Rezervacija.CheckIn).TotalDays) * test2.Soba.PricePerNight;
+                    MessageBox.Show("Ovoliko je duzan covek: " + totalPrice);
+                }
+            }
+            else
+            {
+                if (test != null && test.Osoba != null && test.Rezervacija != null && test.Soba != null)
+                {
+                    int totalPrice = ((int)(test.Rezervacija.CheckOut - test.Rezervacija.CheckIn).TotalDays) * test.Soba.PricePerNight;
+                    if (test.Popravke != null)
 
-                    foreach (var popravke in test.Popravke)
-                    {
-                        totalPrice = totalPrice + popravke.DamagePrice;
-                    }
-                MessageBox.Show("Ovoliko je duzan covek: " + totalPrice);
+                        foreach (var popravke in test.Popravke)
+                        {
+                            totalPrice = totalPrice + popravke.DamagePrice;
+                        }
+                    MessageBox.Show("Ovoliko je duzan covek: " + totalPrice);
+                }
             }
         }
 
@@ -167,7 +186,25 @@ namespace HotelManager.Forms.Gosti
         {
             var deletePath = @"D:\NapredneBazePodataka\HotelManager\HotelManager\resources\" + gost.ID; 
             try // ovo ce obrise gosta i sve njegove veze 
-            { 
+            {
+                var query1 = await client.Cypher
+                                     .Match("(p:Person {ID:" + gost.ID + "}) , (p)-[r:RESERVED]->(soba) , (soba)-[r1:NEEDS]->(majstor)")
+                                     .Where((NeedsRelationship r1) => r1.Done == "")
+                                     .Return((p, r, soba, r1) => new
+                                     {
+                                         Osoba = p.As<Guest>(),
+                                         Rezervacija = r.As<ReservedRelationship>(),
+                                         Soba = soba.As<Room>(),
+                                         Popravke = r1.CollectAs<NeedsRelationship>()
+                                     })
+                                     .ResultsAsync;
+                var test = query1.FirstOrDefault(); //ukoliko postoji needs sa done="" vratice !=null
+                if(test!=null)
+                {
+                    MessageBox.Show("Sobu nije moguce osloboditi. Postoje poslovi koji moraju biti zavrseni.");
+                    return;
+                }
+
                 File.Delete(deletePath);
                 await client.Cypher
                             .Match("(p:Person {ID:" + gost.ID + "})")
@@ -177,6 +214,8 @@ namespace HotelManager.Forms.Gosti
                             .Match("(room:Room {ID:" + roomID + "}), (r)-[r1:NEEDS]->(p)")
                             .Delete("(r1)").ExecuteWithoutResultsAsync();
                 MessageBox.Show("Uspesno ste obrisali rezervaciju!");
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
             catch (Exception exc)
             {
