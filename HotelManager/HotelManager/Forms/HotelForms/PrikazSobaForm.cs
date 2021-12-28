@@ -24,15 +24,6 @@ namespace HotelManager.Forms.Hoteli
 
         private void PrikazSoba_Load(object sender, EventArgs e)
         {
-            client = new GraphClient(new Uri("http://localhost:7474"), "neo4j", "sifra123");
-            try
-            {
-                client.ConnectAsync().Wait();
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
             comboBoxOdabirTipaSobe.SelectedIndex = 0;
             //PopulateInformations();
         }
@@ -58,7 +49,6 @@ namespace HotelManager.Forms.Hoteli
                 }
                 listViewListaSoba.Columns[4].Width = 0;
                 buttonRezervisiSobu.Enabled = true;
-                buttonPrikaziGosta.Enabled = true;
                 buttonOslobodiSobu.Enabled = true;
             }
             else if(comboBoxOdabirTipaSobe.SelectedIndex ==1)
@@ -81,7 +71,6 @@ namespace HotelManager.Forms.Hoteli
                 listViewListaSoba.Columns[4].Width = 0;
                 buttonRezervisiSobu.Enabled = true;
                 buttonOslobodiSobu.Enabled = false;
-                buttonPrikaziGosta.Enabled = false;
             }
             else
             {
@@ -102,7 +91,6 @@ namespace HotelManager.Forms.Hoteli
                 listViewListaSoba.Columns[4].Width = 0;
                 buttonOslobodiSobu.Enabled = true;
                 buttonRezervisiSobu.Enabled = false;
-                buttonPrikaziGosta.Enabled = true;
             }
             //listViewListaSoba.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             //listViewListaSoba.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
@@ -183,32 +171,5 @@ namespace HotelManager.Forms.Hoteli
             
         }
 
-        private void buttonPrikaziGosta_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                int IDsobe = Int32.Parse(listViewListaSoba.SelectedItems[0].SubItems[4].Text);
-                var queryRooms = client.Cypher
-                                   .Match("(p:Person)", "(r:Room)", "(p)-[r1:RESERVED]->(r)")
-                                   .Where((Room r) => r.ID == IDsobe)
-                                   .Return(p => p.As<Guest>())
-                                   .ResultsAsync;
-                var g = queryRooms.Result.ToList();
-                if (g.Count == 0)
-                {
-                    MessageBox.Show("Soba nije rezervisana");
-                    return;
-                }
-                GostInformacije form1 = new GostInformacije(g[0], IDsobe, client);
-                if (form1.ShowDialog() == DialogResult.OK)
-                {
-                    PopulateInformations();
-                }
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
-        }
     }
 }

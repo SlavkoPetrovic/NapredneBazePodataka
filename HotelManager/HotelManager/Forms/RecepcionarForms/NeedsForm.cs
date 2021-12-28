@@ -53,6 +53,7 @@ namespace HotelManager.Forms.RecepcionarForms
                 
 
                 MessageBox.Show("Posao je izmenjen");
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             catch (Exception exc)

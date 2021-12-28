@@ -94,7 +94,7 @@ namespace HotelManager.Forms.Gosti
                     {
                         File.Copy(openFileDialog.FileName, destinationPath + DocumentIDTextBox.Text + ".jpg");
                         personPictureBox.Image = Image.FromFile(destinationPath + DocumentIDTextBox.Text+".jpg");
-                        PicturePathTextBox.Text = destinationPath + DocumentIDTextBox.Text+"jpg";
+                        PicturePathTextBox.Text = destinationPath + DocumentIDTextBox.Text+".jpg";
                     }
                 }
             }

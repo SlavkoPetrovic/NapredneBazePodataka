@@ -1,0 +1,7 @@
+## handle-ovanje greske hotelinfoform kada je prazna lista i ne vraca nista.
+## handle-ovanje bilo kog dugmeta za prikaz kada se ne selektuje nista. (employeeinformationsform) (za sve forme)
+## refresh lista kada se prebaci novi radnik u hotelisinformations
+## za dodavanje i ucitavanje slike da se sredi
+## brisanje slika nakon brisanja rezervacija
+## kada se prosledjuje posao da je cena 0 i da se omoguci za slobodne sobe
+## refresh radnik forme nakon cekiranja obavljenog posla

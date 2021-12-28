@@ -39,7 +39,7 @@ namespace HotelManager.Forms
             {
                 await client.Cypher
                           .Match("(p:Person)")
-                          .Where((Person p) => p.Email == "slavkopetrovic14@gmail.com")//zameniti sa Program.LoginName
+                          .Where((Person p) => p.Email == Program.LoginName)//zameniti sa Program.LoginName
                           .Create("(hotel:Hotel $hotel)")
                           .WithParam("hotel", hotel)
                           .Merge("(p)-[r:MANAGE]->(hotel)")

@@ -30,15 +30,6 @@ namespace HotelManager.Forms.RecepcionarForms
 
         private void SobaTaskForm_Load(object sender, EventArgs e)
         {
-            try
-            {
-
-                client.ConnectAsync().Wait();
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
 
             PopulateInformations();
 

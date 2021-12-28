@@ -23,18 +23,7 @@ namespace HotelManager.Forms.RecepcionarForms
         }
         private void RadnikForm_Load(object sender, EventArgs e)
         {
-            Program.LoginName = "majstor@evropa.com";
-            client = new GraphClient(new Uri("http://localhost:7474"), "neo4j", "sifra123");
-            try
-            {
-
-                client.ConnectAsync().Wait();
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
-            }
-
+           
             PopulateInformations();
         }
         private async void PopulateInformations()
@@ -51,25 +40,27 @@ namespace HotelManager.Forms.RecepcionarForms
             {
                 if (String.IsNullOrEmpty(p.Done))
                 {
-                    ListViewItem item = new ListViewItem(new string[] { p.ToDo.ToString(), p.Done.ToString(), p.DamagePrice.ToString() });
+                    ListViewItem item = new ListViewItem(new string[] {p.ID.ToString() ,p.ToDo.ToString(), p.Done.ToString(), p.DamagePrice.ToString() });
                     listView1.Items.Add(item);
 
                 }
             }
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            listView1.Columns[0].Width = 0;
             listView1.Refresh();
         }
         private async void button1_Click(object sender, EventArgs e)
         {
             
             var queryRooms = await client.Cypher
-                                .Match("(p:Person {Email:'" + Program.LoginName + "'})", "(r)-[r1:NEEDS{ToDo:'" + listView1.SelectedItems[0].SubItems[0].Text + "'}]->(p)")
+                                .Match("(p:Person {Email:'" + Program.LoginName + "'})", "(r)-[r1:NEEDS{ID:" + listView1.SelectedItems[0].SubItems[0].Text + "}]->(p)")
                                 .Return(r1 => r1.As<NeedsRelationship>())
                                 
                                 .ResultsAsync;
             var tasks = queryRooms.ToList();
             int IDsobe = tasks[0].ID;
             NeedsForm form1 = new NeedsForm(IDsobe);
-            MessageBox.Show(IDsobe.ToString());
             form1.client = client;
             if (form1.ShowDialog() == DialogResult.OK)
             {

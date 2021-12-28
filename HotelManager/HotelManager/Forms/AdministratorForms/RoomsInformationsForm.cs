@@ -74,7 +74,10 @@ namespace HotelManager.Forms.AdministratorForms
 
         private void button2_Click(object sender, EventArgs e)//izmeni
         {
-            ModifyRoomForm form1 = new ModifyRoomForm();
+            int idSobe = Int32.Parse(listView1.SelectedItems[0].SubItems[2].Text);
+            string staraCena = listView1.SelectedItems[0].SubItems[6].Text;
+            string stariBrKreveta = listView1.SelectedItems[0].SubItems[5].Text;
+            ModifyRoomForm form1 = new ModifyRoomForm(idSobe, staraCena, stariBrKreveta);
             form1.client = client;
             if (form1.ShowDialog() == DialogResult.OK)
             {

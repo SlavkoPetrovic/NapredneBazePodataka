@@ -40,7 +40,6 @@ namespace HotelManager.Forms.Hoteli
             this.buttonRezervisiSobu = new System.Windows.Forms.Button();
             this.buttonOslobodiSobu = new System.Windows.Forms.Button();
             this.buttonProslediPosao = new System.Windows.Forms.Button();
-            this.buttonPrikaziGosta = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listViewListaSoba
@@ -54,9 +53,10 @@ namespace HotelManager.Forms.Hoteli
             this.listViewListaSoba.FullRowSelect = true;
             this.listViewListaSoba.GridLines = true;
             this.listViewListaSoba.HideSelection = false;
-            this.listViewListaSoba.Location = new System.Drawing.Point(25, 86);
+            this.listViewListaSoba.Location = new System.Drawing.Point(22, 64);
+            this.listViewListaSoba.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listViewListaSoba.Name = "listViewListaSoba";
-            this.listViewListaSoba.Size = new System.Drawing.Size(589, 313);
+            this.listViewListaSoba.Size = new System.Drawing.Size(516, 236);
             this.listViewListaSoba.TabIndex = 1;
             this.listViewListaSoba.UseCompatibleStateImageBehavior = false;
             this.listViewListaSoba.View = System.Windows.Forms.View.Details;
@@ -93,17 +93,19 @@ namespace HotelManager.Forms.Hoteli
             "Sve",
             "Slobodne",
             "Zauzete"});
-            this.comboBoxOdabirTipaSobe.Location = new System.Drawing.Point(47, 30);
+            this.comboBoxOdabirTipaSobe.Location = new System.Drawing.Point(41, 22);
+            this.comboBoxOdabirTipaSobe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxOdabirTipaSobe.Name = "comboBoxOdabirTipaSobe";
-            this.comboBoxOdabirTipaSobe.Size = new System.Drawing.Size(151, 28);
+            this.comboBoxOdabirTipaSobe.Size = new System.Drawing.Size(133, 23);
             this.comboBoxOdabirTipaSobe.TabIndex = 2;
             this.comboBoxOdabirTipaSobe.SelectedIndexChanged += new System.EventHandler(this.comboBoxOdabirTipaSobe_SelectedIndexChanged);
             // 
             // buttonRezervisiSobu
             // 
-            this.buttonRezervisiSobu.Location = new System.Drawing.Point(620, 86);
+            this.buttonRezervisiSobu.Location = new System.Drawing.Point(542, 64);
+            this.buttonRezervisiSobu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonRezervisiSobu.Name = "buttonRezervisiSobu";
-            this.buttonRezervisiSobu.Size = new System.Drawing.Size(153, 29);
+            this.buttonRezervisiSobu.Size = new System.Drawing.Size(134, 22);
             this.buttonRezervisiSobu.TabIndex = 3;
             this.buttonRezervisiSobu.Text = "Rezervisi  Sobu";
             this.buttonRezervisiSobu.UseVisualStyleBackColor = true;
@@ -111,9 +113,10 @@ namespace HotelManager.Forms.Hoteli
             // 
             // buttonOslobodiSobu
             // 
-            this.buttonOslobodiSobu.Location = new System.Drawing.Point(620, 147);
+            this.buttonOslobodiSobu.Location = new System.Drawing.Point(542, 110);
+            this.buttonOslobodiSobu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonOslobodiSobu.Name = "buttonOslobodiSobu";
-            this.buttonOslobodiSobu.Size = new System.Drawing.Size(153, 29);
+            this.buttonOslobodiSobu.Size = new System.Drawing.Size(134, 22);
             this.buttonOslobodiSobu.TabIndex = 4;
             this.buttonOslobodiSobu.Text = "Prikazi rezervaciju";
             this.buttonOslobodiSobu.UseVisualStyleBackColor = true;
@@ -121,35 +124,26 @@ namespace HotelManager.Forms.Hoteli
             // 
             // buttonProslediPosao
             // 
-            this.buttonProslediPosao.Location = new System.Drawing.Point(620, 209);
+            this.buttonProslediPosao.Location = new System.Drawing.Point(542, 157);
+            this.buttonProslediPosao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonProslediPosao.Name = "buttonProslediPosao";
-            this.buttonProslediPosao.Size = new System.Drawing.Size(153, 29);
+            this.buttonProslediPosao.Size = new System.Drawing.Size(134, 22);
             this.buttonProslediPosao.TabIndex = 5;
             this.buttonProslediPosao.Text = "Prosledi Posao";
             this.buttonProslediPosao.UseVisualStyleBackColor = true;
             this.buttonProslediPosao.Click += new System.EventHandler(this.buttonProslediPosao_Click);
             // 
-            // buttonPrikaziGosta
-            // 
-            this.buttonPrikaziGosta.Location = new System.Drawing.Point(621, 259);
-            this.buttonPrikaziGosta.Name = "buttonPrikaziGosta";
-            this.buttonPrikaziGosta.Size = new System.Drawing.Size(152, 31);
-            this.buttonPrikaziGosta.TabIndex = 6;
-            this.buttonPrikaziGosta.Text = "Prikazi Gosta";
-            this.buttonPrikaziGosta.UseVisualStyleBackColor = true;
-            this.buttonPrikaziGosta.Click += new System.EventHandler(this.buttonPrikaziGosta_Click);
-            // 
             // PrikazSobaForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.buttonPrikaziGosta);
+            this.ClientSize = new System.Drawing.Size(700, 338);
             this.Controls.Add(this.buttonProslediPosao);
             this.Controls.Add(this.buttonOslobodiSobu);
             this.Controls.Add(this.buttonRezervisiSobu);
             this.Controls.Add(this.comboBoxOdabirTipaSobe);
             this.Controls.Add(this.listViewListaSoba);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "PrikazSobaForm";
             this.Text = "Hotel";
             this.Load += new System.EventHandler(this.PrikazSoba_Load);
@@ -170,6 +164,5 @@ namespace HotelManager.Forms.Hoteli
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader ID;
-        private System.Windows.Forms.Button buttonPrikaziGosta;
     }
 }
