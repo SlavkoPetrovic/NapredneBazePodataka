@@ -103,6 +103,11 @@ namespace HotelManager.Forms.Hoteli
 
         private void buttonRezervisiSobu_Click(object sender, EventArgs e)
         {
+            if (listViewListaSoba.SelectedItems.Count != 1)
+            {
+                MessageBox.Show("Odaberite sobu");
+                return;
+            }
             try
             {
                 int IDsobe = Int32.Parse(listViewListaSoba.SelectedItems[0].SubItems[4].Text);
@@ -131,6 +136,11 @@ namespace HotelManager.Forms.Hoteli
         }
         private void buttonOslobodiSobu_Click(object sender, EventArgs e)
         {
+            if (listViewListaSoba.SelectedItems.Count != 1)
+            {
+                MessageBox.Show("Odaberite sobu");
+                return;
+            }
             try
             {
                 int IDsobe = Int32.Parse(listViewListaSoba.SelectedItems[0].SubItems[4].Text);
@@ -159,6 +169,11 @@ namespace HotelManager.Forms.Hoteli
 
         private void buttonProslediPosao_Click(object sender, EventArgs e)
         {
+            if (listViewListaSoba.SelectedItems.Count != 1)
+            {
+                MessageBox.Show("Odaberite sobu");
+                return;
+            }
             //otvori forma za prosledjivanje poslova
             int IDsobe = Int32.Parse(listViewListaSoba.SelectedItems[0].SubItems[4].Text);
             // string brSobe = listViewListaSoba.SelectedItems[0].SubItems[1].Text;

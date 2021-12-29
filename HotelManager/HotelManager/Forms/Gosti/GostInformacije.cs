@@ -92,6 +92,7 @@ namespace HotelManager.Forms.Gosti
                 MessageBox.Show("Molimo unesite broj dokumenta gosta!");
                 return;
             }
+            try { 
             var destinationPath = @"D:\NapredneBazePodataka\HotelManager\HotelManager\resources\";
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
@@ -104,6 +105,12 @@ namespace HotelManager.Forms.Gosti
                     personPictureBox.Image = Image.FromFile(destinationPath + DocumentIDTextBox.Text+".jpg");
                     PicturePathTextBox.Text = destinationPath + DocumentIDTextBox.Text+".jpg";
                 }
+            }
+            }
+
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
             }
         }
 
@@ -136,7 +143,9 @@ namespace HotelManager.Forms.Gosti
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            var query1 = await client.Cypher
+            try 
+            {
+                var query1 = await client.Cypher
                                      .Match("(p:Person {ID:" + gost.ID + "}) , (p)-[r:RESERVED]->(soba) , (soba)-[r1:NEEDS]->(majstor)")
                                      .Return((p, r, soba, r1) => new
                                      {
@@ -180,11 +189,17 @@ namespace HotelManager.Forms.Gosti
                     MessageBox.Show("Ovoliko je duzan covek: " + totalPrice);
                 }
             }
+            }
+
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
         }
 
         private async void button2_Click(object sender, EventArgs e)
         {
-            var deletePath = @"D:\NapredneBazePodataka\HotelManager\HotelManager\resources\" + gost.ID; 
+            var deletePath = @"D:\NapredneBazePodataka\HotelManager\HotelManager\resources\" + gost.ID +".jpg"; 
             try // ovo ce obrise gosta i sve njegove veze 
             {
                 var query1 = await client.Cypher
@@ -205,7 +220,7 @@ namespace HotelManager.Forms.Gosti
                     return;
                 }
 
-                File.Delete(deletePath);
+                //File.Delete(deletePath);
                 await client.Cypher
                             .Match("(p:Person {ID:" + gost.ID + "})")
                             .DetachDelete("(p)")
@@ -216,7 +231,9 @@ namespace HotelManager.Forms.Gosti
                 MessageBox.Show("Uspesno ste obrisali rezervaciju!");
                 this.DialogResult = DialogResult.OK;
                 this.Close();
+                File.Delete(deletePath);
             }
+
             catch (Exception exc)
             {
                 MessageBox.Show(exc.Message);

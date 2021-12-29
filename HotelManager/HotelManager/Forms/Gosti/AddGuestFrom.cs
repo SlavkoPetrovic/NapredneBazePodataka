@@ -28,7 +28,6 @@ namespace HotelManager.Forms.Gosti
         }
         private  async void AddReservation_Click(object sender, EventArgs e)
         {
-
             if(String.IsNullOrEmpty(docTypeCmbBox.Text) || String.IsNullOrEmpty(DocumentIDTextBox.Text)|| String.IsNullOrEmpty(NameTextBox.Text) 
                  || String.IsNullOrEmpty(SurnameTextBox.Text))
             {
