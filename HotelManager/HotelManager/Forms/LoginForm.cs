@@ -42,9 +42,9 @@ namespace HotelManager
             try
             {
                 var queryPerson = await client.Cypher
-                                 .Match("(n:Person{Email: '"+emailTxtBox.Text+"'})")
+                                 .Match("(n:Person{Email: '" + emailTxtBox.Text + "'})")
                                  .OptionalMatch("(n)-[r]->(h:Hotel)")
-                                 .Return((n,h) => new
+                                 .Return((n, h) => new
                                  {
                                      Osoba = n.As<Person>(),
                                      Hotel = h.As<Hotel>()
@@ -53,11 +53,12 @@ namespace HotelManager
 
 
                 var person = queryPerson.FirstOrDefault();
-
-
-
-
-               // moje misljenje je da salt i tokeni nisu potrebni za ovaj vid aplikacije
+                if (person == null)
+                {
+                    MessageBox.Show("Uneli ste nepostojace podatke, proverite i pokusajte ponovo!");
+                    return;
+                }
+                // moje misljenje je da salt i tokeni nisu potrebni za ovaj vid aplikacije
                 if (person.Osoba.Password == AddNewEmployeeForm.ComputeHash(passwordTxtBox.Text, new SHA256CryptoServiceProvider()))
                 {
                     if (person.Osoba.Job == "Administrator")// ovo treba da zamenim da vidim koji je job i u zavisnosti od toga da mu ucita sta treba
@@ -109,14 +110,11 @@ namespace HotelManager
             {
                 MessageBox.Show(exc.Message);
             }
-         
-
-
         }
 
         private void passwordTxtBox_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.KeyCode ==Keys.Enter)
+            if (e.KeyCode == Keys.Enter)
             {
                 LoginBtn_Click(this, new EventArgs());
             }

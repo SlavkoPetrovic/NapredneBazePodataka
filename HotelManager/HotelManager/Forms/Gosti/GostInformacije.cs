@@ -202,6 +202,7 @@ namespace HotelManager.Forms.Gosti
             var deletePath = @"D:\NapredneBazePodataka\HotelManager\HotelManager\resources\" + gost.ID +".jpg"; 
             try // ovo ce obrise gosta i sve njegove veze 
             {
+
                 var query1 = await client.Cypher
                                      .Match("(p:Person {ID:" + gost.ID + "}) , (p)-[r:RESERVED]->(soba) , (soba)-[r1:NEEDS]->(majstor)")
                                      .Where((NeedsRelationship r1) => r1.Done == "")
@@ -219,8 +220,7 @@ namespace HotelManager.Forms.Gosti
                     MessageBox.Show("Sobu nije moguce osloboditi. Postoje poslovi koji moraju biti zavrseni.");
                     return;
                 }
-
-                //File.Delete(deletePath);
+           
                 await client.Cypher
                             .Match("(p:Person {ID:" + gost.ID + "})")
                             .DetachDelete("(p)")
@@ -228,7 +228,10 @@ namespace HotelManager.Forms.Gosti
                 await client.Cypher // ovo ce obrise needs veze
                             .Match("(room:Room {ID:" + roomID + "}), (r)-[r1:NEEDS]->(p)")
                             .Delete("(r1)").ExecuteWithoutResultsAsync();
+                personPictureBox.Image?.Dispose();
+                File.Delete(deletePath);
                 MessageBox.Show("Uspesno ste obrisali rezervaciju!");
+
                 this.DialogResult = DialogResult.OK;
                 this.Close();
                 File.Delete(deletePath);
