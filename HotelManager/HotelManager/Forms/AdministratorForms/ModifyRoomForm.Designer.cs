@@ -39,7 +39,7 @@ namespace HotelManager.Forms.AdministratorForms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(57, 31);
+            this.label1.Location = new System.Drawing.Point(25, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 15);
             this.label1.TabIndex = 0;
@@ -48,7 +48,7 @@ namespace HotelManager.Forms.AdministratorForms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(77, 99);
+            this.label2.Location = new System.Drawing.Point(40, 89);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 15);
             this.label2.TabIndex = 1;
@@ -56,23 +56,24 @@ namespace HotelManager.Forms.AdministratorForms
             // 
             // numOfBedsTxtBox
             // 
-            this.numOfBedsTxtBox.Location = new System.Drawing.Point(168, 27);
+            this.numOfBedsTxtBox.Location = new System.Drawing.Point(133, 27);
             this.numOfBedsTxtBox.Name = "numOfBedsTxtBox";
             this.numOfBedsTxtBox.Size = new System.Drawing.Size(100, 23);
             this.numOfBedsTxtBox.TabIndex = 2;
             // 
             // PricePerNightTxtBox
             // 
-            this.PricePerNightTxtBox.Location = new System.Drawing.Point(168, 91);
+            this.PricePerNightTxtBox.Location = new System.Drawing.Point(133, 86);
             this.PricePerNightTxtBox.Name = "PricePerNightTxtBox";
             this.PricePerNightTxtBox.Size = new System.Drawing.Size(100, 23);
             this.PricePerNightTxtBox.TabIndex = 3;
             // 
             // modifyBtn
             // 
-            this.modifyBtn.Location = new System.Drawing.Point(126, 156);
+            this.modifyBtn.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.modifyBtn.Location = new System.Drawing.Point(93, 142);
             this.modifyBtn.Name = "modifyBtn";
-            this.modifyBtn.Size = new System.Drawing.Size(75, 23);
+            this.modifyBtn.Size = new System.Drawing.Size(78, 27);
             this.modifyBtn.TabIndex = 4;
             this.modifyBtn.Text = "Izmeni";
             this.modifyBtn.UseVisualStyleBackColor = true;
@@ -82,14 +83,15 @@ namespace HotelManager.Forms.AdministratorForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(374, 227);
+            this.BackColor = System.Drawing.Color.CadetBlue;
+            this.ClientSize = new System.Drawing.Size(263, 189);
             this.Controls.Add(this.modifyBtn);
             this.Controls.Add(this.PricePerNightTxtBox);
             this.Controls.Add(this.numOfBedsTxtBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "ModifyRoomForm";
-            this.Text = "ModifyRoom";
+            this.Text = "Izmeni sobu";
             this.Load += new System.EventHandler(this.ModifyRoomForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

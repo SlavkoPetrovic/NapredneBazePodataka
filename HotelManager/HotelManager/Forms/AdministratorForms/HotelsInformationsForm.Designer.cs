@@ -49,10 +49,10 @@ namespace HotelManager.Forms.AdministratorForms
             this.hotelListView.FullRowSelect = true;
             this.hotelListView.GridLines = true;
             this.hotelListView.HideSelection = false;
-            this.hotelListView.Location = new System.Drawing.Point(54, 43);
+            this.hotelListView.Location = new System.Drawing.Point(12, 43);
             this.hotelListView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.hotelListView.Name = "hotelListView";
-            this.hotelListView.Size = new System.Drawing.Size(331, 254);
+            this.hotelListView.Size = new System.Drawing.Size(285, 254);
             this.hotelListView.TabIndex = 0;
             this.hotelListView.UseCompatibleStateImageBehavior = false;
             this.hotelListView.View = System.Windows.Forms.View.Details;
@@ -76,9 +76,10 @@ namespace HotelManager.Forms.AdministratorForms
             // 
             // ShowHotelBtn
             // 
-            this.ShowHotelBtn.Location = new System.Drawing.Point(443, 143);
+            this.ShowHotelBtn.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ShowHotelBtn.Location = new System.Drawing.Point(322, 152);
             this.ShowHotelBtn.Name = "ShowHotelBtn";
-            this.ShowHotelBtn.Size = new System.Drawing.Size(141, 47);
+            this.ShowHotelBtn.Size = new System.Drawing.Size(125, 30);
             this.ShowHotelBtn.TabIndex = 1;
             this.ShowHotelBtn.Text = "Detaljniji prikaz hotela";
             this.ShowHotelBtn.UseVisualStyleBackColor = true;
@@ -86,19 +87,21 @@ namespace HotelManager.Forms.AdministratorForms
             // 
             // DeleteHotelBtn
             // 
-            this.DeleteHotelBtn.Location = new System.Drawing.Point(452, 214);
+            this.DeleteHotelBtn.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.DeleteHotelBtn.Location = new System.Drawing.Point(322, 223);
             this.DeleteHotelBtn.Name = "DeleteHotelBtn";
-            this.DeleteHotelBtn.Size = new System.Drawing.Size(113, 40);
+            this.DeleteHotelBtn.Size = new System.Drawing.Size(125, 30);
             this.DeleteHotelBtn.TabIndex = 2;
-            this.DeleteHotelBtn.Text = "Obrisi hotel";
+            this.DeleteHotelBtn.Text = "Obriši hotel";
             this.DeleteHotelBtn.UseVisualStyleBackColor = true;
             this.DeleteHotelBtn.Click += new System.EventHandler(this.DeleteHotelBtn_Click);
             // 
             // AddNewHotelBtn
             // 
-            this.AddNewHotelBtn.Location = new System.Drawing.Point(452, 71);
+            this.AddNewHotelBtn.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AddNewHotelBtn.Location = new System.Drawing.Point(322, 80);
             this.AddNewHotelBtn.Name = "AddNewHotelBtn";
-            this.AddNewHotelBtn.Size = new System.Drawing.Size(113, 42);
+            this.AddNewHotelBtn.Size = new System.Drawing.Size(125, 29);
             this.AddNewHotelBtn.TabIndex = 3;
             this.AddNewHotelBtn.Text = "Dodaj novi hotel";
             this.AddNewHotelBtn.UseVisualStyleBackColor = true;
@@ -108,14 +111,15 @@ namespace HotelManager.Forms.AdministratorForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 338);
+            this.BackColor = System.Drawing.Color.CadetBlue;
+            this.ClientSize = new System.Drawing.Size(473, 328);
             this.Controls.Add(this.AddNewHotelBtn);
             this.Controls.Add(this.DeleteHotelBtn);
             this.Controls.Add(this.ShowHotelBtn);
             this.Controls.Add(this.hotelListView);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "HotelsInformationsForm";
-            this.Text = "HotelsInformations";
+            this.Text = "Informacije hotela";
             this.Load += new System.EventHandler(this.HotelsInformations_Load);
             this.ResumeLayout(false);
 

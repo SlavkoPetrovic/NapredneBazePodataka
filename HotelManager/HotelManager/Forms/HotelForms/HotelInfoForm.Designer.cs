@@ -42,7 +42,7 @@ namespace HotelManager.Forms.HotelForms
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(53, 82);
+            this.listView1.Location = new System.Drawing.Point(17, 65);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(538, 285);
             this.listView1.TabIndex = 0;
@@ -74,9 +74,10 @@ namespace HotelManager.Forms.HotelForms
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(629, 82);
+            this.button1.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(579, 141);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(79, 29);
             this.button1.TabIndex = 3;
             this.button1.Text = "Dodaj";
             this.button1.UseVisualStyleBackColor = true;
@@ -84,9 +85,10 @@ namespace HotelManager.Forms.HotelForms
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(629, 143);
+            this.button2.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button2.Location = new System.Drawing.Point(579, 198);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(79, 29);
             this.button2.TabIndex = 4;
             this.button2.Text = "Izmeni";
             this.button2.UseVisualStyleBackColor = true;
@@ -94,11 +96,12 @@ namespace HotelManager.Forms.HotelForms
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(629, 193);
+            this.button3.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button3.Location = new System.Drawing.Point(579, 252);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.Size = new System.Drawing.Size(79, 29);
             this.button3.TabIndex = 5;
-            this.button3.Text = "Obrisi";
+            this.button3.Text = "Obriši";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
@@ -106,7 +109,8 @@ namespace HotelManager.Forms.HotelForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.CadetBlue;
+            this.ClientSize = new System.Drawing.Size(685, 370);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -114,7 +118,7 @@ namespace HotelManager.Forms.HotelForms
             this.Controls.Add(this.PrikaziCmbBox);
             this.Controls.Add(this.listView1);
             this.Name = "HotelInfoForm";
-            this.Text = "HotelInfoForm";
+            this.Text = "Informacije hotela";
             this.Load += new System.EventHandler(this.HotelInfoForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

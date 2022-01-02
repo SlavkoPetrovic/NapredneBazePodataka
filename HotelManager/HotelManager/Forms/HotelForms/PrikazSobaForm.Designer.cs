@@ -93,7 +93,7 @@ namespace HotelManager.Forms.Hoteli
             "Sve",
             "Slobodne",
             "Zauzete"});
-            this.comboBoxOdabirTipaSobe.Location = new System.Drawing.Point(41, 22);
+            this.comboBoxOdabirTipaSobe.Location = new System.Drawing.Point(22, 22);
             this.comboBoxOdabirTipaSobe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxOdabirTipaSobe.Name = "comboBoxOdabirTipaSobe";
             this.comboBoxOdabirTipaSobe.Size = new System.Drawing.Size(133, 23);
@@ -137,6 +137,7 @@ namespace HotelManager.Forms.Hoteli
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.CadetBlue;
             this.ClientSize = new System.Drawing.Size(700, 338);
             this.Controls.Add(this.buttonProslediPosao);
             this.Controls.Add(this.buttonOslobodiSobu);

@@ -41,7 +41,7 @@ namespace HotelManager.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 34);
+            this.label1.Location = new System.Drawing.Point(27, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 15);
             this.label1.TabIndex = 0;
@@ -50,7 +50,7 @@ namespace HotelManager.Forms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 72);
+            this.label2.Location = new System.Drawing.Point(27, 79);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 15);
             this.label2.TabIndex = 1;
@@ -59,7 +59,7 @@ namespace HotelManager.Forms
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(27, 120);
+            this.label3.Location = new System.Drawing.Point(27, 121);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 15);
             this.label3.TabIndex = 2;
@@ -75,7 +75,7 @@ namespace HotelManager.Forms
             // 
             // LocationTxtBox
             // 
-            this.LocationTxtBox.Location = new System.Drawing.Point(116, 72);
+            this.LocationTxtBox.Location = new System.Drawing.Point(116, 76);
             this.LocationTxtBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.LocationTxtBox.Name = "LocationTxtBox";
             this.LocationTxtBox.Size = new System.Drawing.Size(110, 23);
@@ -91,12 +91,13 @@ namespace HotelManager.Forms
             // 
             // AddHotelBtn
             // 
-            this.AddHotelBtn.Location = new System.Drawing.Point(93, 244);
+            this.AddHotelBtn.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.AddHotelBtn.Location = new System.Drawing.Point(84, 184);
             this.AddHotelBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AddHotelBtn.Name = "AddHotelBtn";
-            this.AddHotelBtn.Size = new System.Drawing.Size(82, 26);
+            this.AddHotelBtn.Size = new System.Drawing.Size(91, 30);
             this.AddHotelBtn.TabIndex = 6;
-            this.AddHotelBtn.Text = "Dodaj Hotel";
+            this.AddHotelBtn.Text = "Dodaj hotel";
             this.AddHotelBtn.UseVisualStyleBackColor = true;
             this.AddHotelBtn.Click += new System.EventHandler(this.AddHotelBtn_Click);
             // 
@@ -104,7 +105,8 @@ namespace HotelManager.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(278, 302);
+            this.BackColor = System.Drawing.Color.CadetBlue;
+            this.ClientSize = new System.Drawing.Size(260, 244);
             this.Controls.Add(this.AddHotelBtn);
             this.Controls.Add(this.addressTxtBox);
             this.Controls.Add(this.LocationTxtBox);
@@ -114,7 +116,7 @@ namespace HotelManager.Forms
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "AddHotelForm";
-            this.Text = "AddHotelForm";
+            this.Text = "Dodaj hotel";
             this.Load += new System.EventHandler(this.AddHotelForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -42,9 +42,10 @@ namespace HotelManager.Forms.RecepcionarForms
             this.columnHeader2,
             this.columnHeader3});
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(95, 61);
+            this.listView1.Location = new System.Drawing.Point(12, 21);
+            this.listView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(516, 313);
+            this.listView1.Size = new System.Drawing.Size(527, 236);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -63,12 +64,14 @@ namespace HotelManager.Forms.RecepcionarForms
             // 
             // SobaTaskForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 451);
+            this.BackColor = System.Drawing.Color.CadetBlue;
+            this.ClientSize = new System.Drawing.Size(582, 283);
             this.Controls.Add(this.listView1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "SobaTaskForm";
-            this.Text = "NoviTaskForm";
+            this.Text = "Troškovi";
             this.Load += new System.EventHandler(this.SobaTaskForm_Load);
             this.ResumeLayout(false);
 

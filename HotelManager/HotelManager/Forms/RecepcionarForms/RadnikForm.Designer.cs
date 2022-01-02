@@ -47,7 +47,7 @@ namespace HotelManager.Forms.RecepcionarForms
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(44, 70);
+            this.listView1.Location = new System.Drawing.Point(23, 25);
             this.listView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listView1.Name = "listView1";
             this.listView1.Size = new System.Drawing.Size(478, 240);
@@ -77,10 +77,11 @@ namespace HotelManager.Forms.RecepcionarForms
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(570, 145);
+            this.button1.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(529, 139);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 20);
+            this.button1.Size = new System.Drawing.Size(97, 25);
             this.button1.TabIndex = 1;
             this.button1.Text = "Izmeni";
             this.button1.UseVisualStyleBackColor = true;
@@ -90,12 +91,13 @@ namespace HotelManager.Forms.RecepcionarForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(700, 338);
+            this.BackColor = System.Drawing.Color.CadetBlue;
+            this.ClientSize = new System.Drawing.Size(666, 285);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listView1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "RadnikForm";
-            this.Text = "RadnikForm";
+            this.Text = "Lista poslova";
             this.Load += new System.EventHandler(this.RadnikForm_Load);
             this.ResumeLayout(false);
 

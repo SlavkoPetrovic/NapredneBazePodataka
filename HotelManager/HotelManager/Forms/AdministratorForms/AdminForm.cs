@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -47,7 +48,10 @@ namespace HotelManager.Forms.AdministratorForms
 
         private void AdminForm_Load(object sender, EventArgs e)
         {
-        
+
+               SoundPlayer simpleSound = new SoundPlayer(@"C:\NapredneBazePodataka\HotelManager\HotelManager\resources\Marija MaXima - Vucic Aleksandar.wav");
+               simpleSound.Play();
+
         }
     }
 }

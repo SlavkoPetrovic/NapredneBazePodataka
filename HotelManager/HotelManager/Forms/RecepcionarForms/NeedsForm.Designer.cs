@@ -42,48 +42,52 @@ namespace HotelManager.Forms.RecepcionarForms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(71, 106);
+            this.label1.Location = new System.Drawing.Point(26, 46);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(168, 20);
+            this.label1.Size = new System.Drawing.Size(133, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Posao koji treba obaviti:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(81, 191);
+            this.label2.Location = new System.Drawing.Point(92, 109);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 20);
+            this.label2.Size = new System.Drawing.Size(0, 15);
             this.label2.TabIndex = 1;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(81, 269);
+            this.label3.Location = new System.Drawing.Point(30, 168);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(158, 20);
+            this.label3.Size = new System.Drawing.Size(125, 15);
             this.label3.TabIndex = 2;
             this.label3.Text = "Cena obavljanja posla:";
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(308, 188);
+            this.textBox1.Location = new System.Drawing.Point(201, 106);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(234, 27);
+            this.textBox1.Size = new System.Drawing.Size(205, 23);
             this.textBox1.TabIndex = 4;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(308, 266);
+            this.textBox2.Location = new System.Drawing.Point(201, 165);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(234, 27);
+            this.textBox2.Size = new System.Drawing.Size(205, 23);
             this.textBox2.TabIndex = 5;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(208, 375);
+            this.button1.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button1.Location = new System.Drawing.Point(150, 230);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(286, 63);
+            this.button1.Size = new System.Drawing.Size(113, 32);
             this.button1.TabIndex = 6;
             this.button1.Text = "Izmeni";
             this.button1.UseVisualStyleBackColor = true;
@@ -92,25 +96,27 @@ namespace HotelManager.Forms.RecepcionarForms
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(83, 191);
+            this.label5.Location = new System.Drawing.Point(30, 109);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(156, 20);
+            this.label5.Size = new System.Drawing.Size(124, 15);
             this.label5.TabIndex = 7;
             this.label5.Text = "Posao koji je obavljen:";
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(308, 103);
+            this.textBox3.Location = new System.Drawing.Point(201, 42);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(234, 27);
+            this.textBox3.Size = new System.Drawing.Size(205, 23);
             this.textBox3.TabIndex = 9;
             // 
             // NeedsForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.CadetBlue;
+            this.ClientSize = new System.Drawing.Size(437, 287);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.button1);
@@ -119,8 +125,9 @@ namespace HotelManager.Forms.RecepcionarForms
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "NeedsForm";
-            this.Text = "NeedsForm";
+            this.Text = "Posao";
             this.Load += new System.EventHandler(this.NeedsForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -38,36 +38,39 @@ namespace HotelManager.Forms.RecepcionarForms
             // 
             // tbxTask
             // 
-            this.tbxTask.Location = new System.Drawing.Point(238, 134);
+            this.tbxTask.Location = new System.Drawing.Point(193, 63);
+            this.tbxTask.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tbxTask.Name = "tbxTask";
-            this.tbxTask.Size = new System.Drawing.Size(440, 27);
+            this.tbxTask.Size = new System.Drawing.Size(386, 23);
             this.tbxTask.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(102, 141);
+            this.label1.Location = new System.Drawing.Point(32, 69);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(48, 20);
+            this.label1.Size = new System.Drawing.Size(39, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "Posao";
             // 
             // btnPosalji
             // 
-            this.btnPosalji.Location = new System.Drawing.Point(263, 309);
+            this.btnPosalji.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnPosalji.Location = new System.Drawing.Point(215, 195);
+            this.btnPosalji.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnPosalji.Name = "btnPosalji";
-            this.btnPosalji.Size = new System.Drawing.Size(293, 47);
+            this.btnPosalji.Size = new System.Drawing.Size(117, 38);
             this.btnPosalji.TabIndex = 2;
-            this.btnPosalji.Text = "Posalji";
+            this.btnPosalji.Text = "Pošalji";
             this.btnPosalji.UseVisualStyleBackColor = true;
             this.btnPosalji.Click += new System.EventHandler(this.btnPosalji_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(54, 208);
+            this.label2.Location = new System.Drawing.Point(32, 119);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(113, 20);
+            this.label2.Size = new System.Drawing.Size(91, 15);
             this.label2.TabIndex = 4;
             this.label2.Text = "Potreban radnik";
             // 
@@ -77,23 +80,26 @@ namespace HotelManager.Forms.RecepcionarForms
             this.comboBox1.Items.AddRange(new object[] {
             "Majstor",
             "Sobarica"});
-            this.comboBox1.Location = new System.Drawing.Point(238, 208);
+            this.comboBox1.Location = new System.Drawing.Point(193, 119);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(440, 28);
+            this.comboBox1.Size = new System.Drawing.Size(386, 23);
             this.comboBox1.TabIndex = 5;
             // 
             // NoviTaskForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackColor = System.Drawing.Color.CadetBlue;
+            this.ClientSize = new System.Drawing.Size(622, 261);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btnPosalji);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbxTask);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "NoviTaskForm";
-            this.Text = "SobaTaskForm";
+            this.Text = "Dodaj posao";
             this.Load += new System.EventHandler(this.NoviTaskForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
