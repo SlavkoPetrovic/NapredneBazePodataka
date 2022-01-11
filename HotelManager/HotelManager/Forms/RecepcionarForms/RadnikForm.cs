@@ -52,7 +52,11 @@ namespace HotelManager.Forms.RecepcionarForms
         }
         private async void button1_Click(object sender, EventArgs e)
         {
-            
+            if (listView1.SelectedItems.Count != 1)
+            {
+                MessageBox.Show("Odaberite zadatak");
+                return;
+            }
             var queryRooms = await client.Cypher
                                 .Match("(p:Person {Email:'" + Program.LoginName + "'})", "(r)-[r1:NEEDS{ID:" + listView1.SelectedItems[0].SubItems[0].Text + "}]->(p)")
                                 .Return(r1 => r1.As<NeedsRelationship>())

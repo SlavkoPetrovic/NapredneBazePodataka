@@ -70,6 +70,11 @@ namespace HotelManager.Forms.AdministratorForms
 
         private void ModifyBtn_Click(object sender, EventArgs e)
         {
+            if (listView1.SelectedItems.Count != 1)
+            {
+                MessageBox.Show("Odaberite radnika kojeg zelite izmeniti");
+                return;
+            }
             string emailOsobe = listView1.SelectedItems[0].SubItems[4].Text;
             ModifyEmployeeForm form1 = new ModifyEmployeeForm(emailOsobe);
             form1.client = client;

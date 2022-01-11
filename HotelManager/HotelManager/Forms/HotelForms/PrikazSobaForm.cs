@@ -50,6 +50,7 @@ namespace HotelManager.Forms.Hoteli
                 listViewListaSoba.Columns[4].Width = 0;
                 buttonRezervisiSobu.Enabled = true;
                 buttonOslobodiSobu.Enabled = true;
+                buttonProslediPosao.Enabled = true;
             }
             else if(comboBoxOdabirTipaSobe.SelectedIndex ==1)
             {
@@ -71,6 +72,7 @@ namespace HotelManager.Forms.Hoteli
                 listViewListaSoba.Columns[4].Width = 0;
                 buttonRezervisiSobu.Enabled = true;
                 buttonOslobodiSobu.Enabled = false;
+                buttonProslediPosao.Enabled = false;
             }
             else
             {
@@ -91,6 +93,7 @@ namespace HotelManager.Forms.Hoteli
                 listViewListaSoba.Columns[4].Width = 0;
                 buttonOslobodiSobu.Enabled = true;
                 buttonRezervisiSobu.Enabled = false;
+                buttonProslediPosao.Enabled = true;
             }
             //listViewListaSoba.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
             //listViewListaSoba.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
@@ -174,8 +177,20 @@ namespace HotelManager.Forms.Hoteli
                 MessageBox.Show("Odaberite sobu");
                 return;
             }
-            //otvori forma za prosledjivanje poslova
             int IDsobe = Int32.Parse(listViewListaSoba.SelectedItems[0].SubItems[4].Text);
+            var queryRooms = client.Cypher
+                               .Match("(p:Person)", "(r:Room)", "(p)-[r1:RESERVED]->(r)")
+                               .Where((Room r) => r.ID == IDsobe)
+                               .Return(p => p.As<Guest>())
+                               .ResultsAsync;
+            var g = queryRooms.Result.ToList();
+            if (g.Count == 0)
+            {
+                MessageBox.Show("Soba nije rezervisana");
+                return;
+            }
+            //otvori forma za prosledjivanje poslova
+            // int IDsobe = Int32.Parse(listViewListaSoba.SelectedItems[0].SubItems[4].Text);
             // string brSobe = listViewListaSoba.SelectedItems[0].SubItems[1].Text;
             NoviTaskForm form1 = new NoviTaskForm(IDsobe);
             form1.client = client;  

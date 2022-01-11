@@ -74,6 +74,11 @@ namespace HotelManager.Forms.AdministratorForms
 
         private void button2_Click(object sender, EventArgs e)//izmeni
         {
+            if (listView1.SelectedItems.Count != 1)
+            {
+                MessageBox.Show("Odaberite sobu koju zelite izmeniti");
+                return;
+            }
             int idSobe = Int32.Parse(listView1.SelectedItems[0].SubItems[2].Text);
             string staraCena = listView1.SelectedItems[0].SubItems[6].Text;
             string stariBrKreveta = listView1.SelectedItems[0].SubItems[5].Text;
