@@ -37,6 +37,7 @@ namespace HotelManager.Forms.AdministratorForms
             // 
             // listView1
             // 
+            this.listView1.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
@@ -91,7 +92,10 @@ namespace HotelManager.Forms.AdministratorForms
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimizeBox = false;
             this.Name = "RoomsInformationsForm";
+            this.ShowIcon = false;
             this.Text = "Informacije sobe";
             this.Load += new System.EventHandler(this.RoomsInformationsForm_Load);
             this.ResumeLayout(false);

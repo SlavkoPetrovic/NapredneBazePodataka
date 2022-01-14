@@ -50,7 +50,7 @@ namespace HotelManager.Forms.AdministratorForms
                 Floor = Int32.Parse(FloorNumberTxtBox.Text),
                 PricePerNight = Int32.Parse(PricePerNightTxtBox.Text),
                 NumberOfBeds = Int32.Parse(NumOfBedsTxtBox.Text),
-                ID = newId 
+                ID = 0 
             };
 
             if(hotelOption ==true)

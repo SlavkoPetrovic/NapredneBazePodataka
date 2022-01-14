@@ -56,7 +56,11 @@ namespace HotelManager.Forms.HotelForms
                                               .Return(p => p.As<Person>())
                                               .ResultsAsync;
                 var list = queryRadnik.ToList();
-
+                if(list==null)
+                {
+                    MessageBox.Show("Nema nicega");
+                    return;
+                }
                 foreach(var p in list)
                 {
                     ListViewItem item = new ListViewItem(new string[] { p.Name, p.Surname, p.Email, p.Job });
@@ -87,7 +91,11 @@ namespace HotelManager.Forms.HotelForms
                                               .ResultsAsync;
 
                 var list = queryRoom.ToList();
-
+                if (list.Count() == 0)
+                {
+                    MessageBox.Show("Nema nicega");
+                    return;
+                }
                 foreach (var p in list)
                 {
                     ListViewItem item = new ListViewItem(new string[] { p.ID.ToString(), p.Number.ToString(), p.Floor.ToString(), p.NumberOfBeds.ToString() ,p.PricePerNight.ToString() });
@@ -98,9 +106,6 @@ namespace HotelManager.Forms.HotelForms
                 listView1.Refresh();
 
             }
-
-
-
 
         }
 

@@ -42,9 +42,10 @@ namespace HotelManager.Forms.RecepcionarForms
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(26, 46);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(133, 15);
+            this.label1.Size = new System.Drawing.Size(144, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Posao koji treba obaviti:";
             // 
@@ -59,26 +60,29 @@ namespace HotelManager.Forms.RecepcionarForms
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(30, 168);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(125, 15);
+            this.label3.Size = new System.Drawing.Size(129, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "Cena obavljanja posla:";
             // 
             // textBox1
             // 
+            this.textBox1.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox1.Location = new System.Drawing.Point(201, 106);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(205, 23);
+            this.textBox1.Size = new System.Drawing.Size(205, 27);
             this.textBox1.TabIndex = 4;
             // 
             // textBox2
             // 
+            this.textBox2.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox2.Location = new System.Drawing.Point(201, 165);
             this.textBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(205, 23);
+            this.textBox2.Size = new System.Drawing.Size(205, 27);
             this.textBox2.TabIndex = 5;
             // 
             // button1
@@ -96,19 +100,21 @@ namespace HotelManager.Forms.RecepcionarForms
             // label5
             // 
             this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label5.Location = new System.Drawing.Point(30, 109);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(124, 15);
+            this.label5.Size = new System.Drawing.Size(131, 17);
             this.label5.TabIndex = 7;
             this.label5.Text = "Posao koji je obavljen:";
             // 
             // textBox3
             // 
+            this.textBox3.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.textBox3.Location = new System.Drawing.Point(201, 42);
             this.textBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox3.Name = "textBox3";
             this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(205, 23);
+            this.textBox3.Size = new System.Drawing.Size(205, 27);
             this.textBox3.TabIndex = 9;
             // 
             // NeedsForm
@@ -125,7 +131,9 @@ namespace HotelManager.Forms.RecepcionarForms
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MinimizeBox = false;
             this.Name = "NeedsForm";
             this.Text = "Posao";
             this.Load += new System.EventHandler(this.NeedsForm_Load);

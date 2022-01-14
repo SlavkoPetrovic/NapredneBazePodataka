@@ -93,7 +93,8 @@ namespace HotelManager
             this.Controls.Add(this.passwordTxtBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.emailTxtBox);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";

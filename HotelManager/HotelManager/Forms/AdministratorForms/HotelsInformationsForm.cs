@@ -117,9 +117,6 @@ namespace HotelManager.Forms.AdministratorForms
             {
                 PopulateInfo();
             }
-
-
-
         }
 
         private void hotelListView_ColumnWidthChanging(object sender, ColumnWidthChangingEventArgs e)

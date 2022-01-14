@@ -44,7 +44,7 @@ namespace HotelManager.Forms.RecepcionarForms
                                              .Return(() => Neo4jClient.Cypher.Return.As<int>("MAX(r1.ID)"))
                                              .ResultsAsync;
                     var listID = query1.ToList();
-                    MessageBox.Show(listID[0].ToString());
+                    //MessageBox.Show(listID[0].ToString());
                     newId = listID[0] + 1;
                 }
 

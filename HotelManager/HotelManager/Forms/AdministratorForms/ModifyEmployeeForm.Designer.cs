@@ -59,18 +59,20 @@ namespace HotelManager.Forms.AdministratorForms
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(12, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 15);
+            this.label1.Size = new System.Drawing.Size(48, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "Pozicija";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(12, 92);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 15);
+            this.label2.Size = new System.Drawing.Size(38, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "Hotel";
             // 
@@ -96,6 +98,8 @@ namespace HotelManager.Forms.AdministratorForms
             this.Controls.Add(this.label1);
             this.Controls.Add(this.HotelsCmbBox);
             this.Controls.Add(this.PositionCmbBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "ModifyEmployeeForm";
             this.Text = "Izmeni zaposlenog";
             this.Load += new System.EventHandler(this.ModifyEmployeeForm_Load);

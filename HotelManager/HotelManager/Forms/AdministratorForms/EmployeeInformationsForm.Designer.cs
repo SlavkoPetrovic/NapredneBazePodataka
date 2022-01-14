@@ -91,6 +91,8 @@ namespace HotelManager.Forms.AdministratorForms
             this.Controls.Add(this.ModifyBtn);
             this.Controls.Add(this.AddBtn);
             this.Controls.Add(this.listView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimizeBox = false;
             this.Name = "EmployeeInformationsForm";
             this.Text = "Informacije zaposlenih";
             this.Load += new System.EventHandler(this.EmployeeInformationsForm_Load);

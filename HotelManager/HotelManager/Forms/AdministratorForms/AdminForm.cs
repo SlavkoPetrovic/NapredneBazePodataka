@@ -49,8 +49,8 @@ namespace HotelManager.Forms.AdministratorForms
         private void AdminForm_Load(object sender, EventArgs e)
         {
 
-               SoundPlayer simpleSound = new SoundPlayer(@"C:\NapredneBazePodataka\HotelManager\HotelManager\resources\Marija MaXima - Vucic Aleksandar.wav");
-               simpleSound.Play();
+               //SoundPlayer simpleSound = new SoundPlayer(@"D:\NapredneBazePodataka\HotelManager\HotelManager\resources\Marija MaXima - Vucic Aleksandar.wav");
+               //simpleSound.Play();
 
         }
     }

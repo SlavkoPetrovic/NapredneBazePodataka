@@ -50,13 +50,14 @@ namespace HotelManager.Forms.Hoteli
             this.columnHeader3,
             this.columnHeader4,
             this.ID});
+            this.listViewListaSoba.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listViewListaSoba.FullRowSelect = true;
             this.listViewListaSoba.GridLines = true;
             this.listViewListaSoba.HideSelection = false;
-            this.listViewListaSoba.Location = new System.Drawing.Point(22, 64);
+            this.listViewListaSoba.Location = new System.Drawing.Point(12, 61);
             this.listViewListaSoba.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listViewListaSoba.Name = "listViewListaSoba";
-            this.listViewListaSoba.Size = new System.Drawing.Size(516, 236);
+            this.listViewListaSoba.Size = new System.Drawing.Size(666, 236);
             this.listViewListaSoba.TabIndex = 1;
             this.listViewListaSoba.UseCompatibleStateImageBehavior = false;
             this.listViewListaSoba.View = System.Windows.Forms.View.Details;
@@ -88,6 +89,7 @@ namespace HotelManager.Forms.Hoteli
             // comboBoxOdabirTipaSobe
             // 
             this.comboBoxOdabirTipaSobe.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxOdabirTipaSobe.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxOdabirTipaSobe.FormattingEnabled = true;
             this.comboBoxOdabirTipaSobe.Items.AddRange(new object[] {
             "Sve",
@@ -96,16 +98,17 @@ namespace HotelManager.Forms.Hoteli
             this.comboBoxOdabirTipaSobe.Location = new System.Drawing.Point(22, 22);
             this.comboBoxOdabirTipaSobe.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.comboBoxOdabirTipaSobe.Name = "comboBoxOdabirTipaSobe";
-            this.comboBoxOdabirTipaSobe.Size = new System.Drawing.Size(133, 23);
+            this.comboBoxOdabirTipaSobe.Size = new System.Drawing.Size(133, 25);
             this.comboBoxOdabirTipaSobe.TabIndex = 2;
             this.comboBoxOdabirTipaSobe.SelectedIndexChanged += new System.EventHandler(this.comboBoxOdabirTipaSobe_SelectedIndexChanged);
             // 
             // buttonRezervisiSobu
             // 
-            this.buttonRezervisiSobu.Location = new System.Drawing.Point(542, 64);
+            this.buttonRezervisiSobu.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonRezervisiSobu.Location = new System.Drawing.Point(718, 58);
             this.buttonRezervisiSobu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonRezervisiSobu.Name = "buttonRezervisiSobu";
-            this.buttonRezervisiSobu.Size = new System.Drawing.Size(134, 22);
+            this.buttonRezervisiSobu.Size = new System.Drawing.Size(138, 22);
             this.buttonRezervisiSobu.TabIndex = 3;
             this.buttonRezervisiSobu.Text = "Rezervisi  Sobu";
             this.buttonRezervisiSobu.UseVisualStyleBackColor = true;
@@ -113,10 +116,11 @@ namespace HotelManager.Forms.Hoteli
             // 
             // buttonOslobodiSobu
             // 
-            this.buttonOslobodiSobu.Location = new System.Drawing.Point(542, 110);
+            this.buttonOslobodiSobu.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonOslobodiSobu.Location = new System.Drawing.Point(718, 108);
             this.buttonOslobodiSobu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonOslobodiSobu.Name = "buttonOslobodiSobu";
-            this.buttonOslobodiSobu.Size = new System.Drawing.Size(134, 22);
+            this.buttonOslobodiSobu.Size = new System.Drawing.Size(138, 22);
             this.buttonOslobodiSobu.TabIndex = 4;
             this.buttonOslobodiSobu.Text = "Prikazi rezervaciju";
             this.buttonOslobodiSobu.UseVisualStyleBackColor = true;
@@ -124,10 +128,11 @@ namespace HotelManager.Forms.Hoteli
             // 
             // buttonProslediPosao
             // 
-            this.buttonProslediPosao.Location = new System.Drawing.Point(542, 157);
+            this.buttonProslediPosao.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.buttonProslediPosao.Location = new System.Drawing.Point(718, 157);
             this.buttonProslediPosao.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonProslediPosao.Name = "buttonProslediPosao";
-            this.buttonProslediPosao.Size = new System.Drawing.Size(134, 22);
+            this.buttonProslediPosao.Size = new System.Drawing.Size(138, 22);
             this.buttonProslediPosao.TabIndex = 5;
             this.buttonProslediPosao.Text = "Prosledi Posao";
             this.buttonProslediPosao.UseVisualStyleBackColor = true;
@@ -138,13 +143,15 @@ namespace HotelManager.Forms.Hoteli
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CadetBlue;
-            this.ClientSize = new System.Drawing.Size(700, 338);
+            this.ClientSize = new System.Drawing.Size(868, 338);
             this.Controls.Add(this.buttonProslediPosao);
             this.Controls.Add(this.buttonOslobodiSobu);
             this.Controls.Add(this.buttonRezervisiSobu);
             this.Controls.Add(this.comboBoxOdabirTipaSobe);
             this.Controls.Add(this.listViewListaSoba);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.Name = "PrikazSobaForm";
             this.Text = "Hotel";
             this.Load += new System.EventHandler(this.PrikazSoba_Load);

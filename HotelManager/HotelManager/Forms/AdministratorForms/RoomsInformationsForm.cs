@@ -45,6 +45,7 @@ namespace HotelManager.Forms.AdministratorForms
                                             Rooms = r.As<Room>(),
                                             Hotel = h.As<Hotel>()
                                         })
+                                        .OrderBy("(h.Name)","(r.Number)")                                        
                                         .ResultsAsync;
                                  
 

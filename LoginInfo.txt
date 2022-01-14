@@ -1,0 +1,10 @@
+Administrator: admin@hotel.com : sifra123
+Hotel Grand: Recepcionar : recepcionar@grand.com
+	     Sobarica: sobarica@grand.com
+	     Majstor: majstor@grand.com
+		sifra: sifra123 za sve
+Hotel Ambasador: Recepcionar : recepcionar@ambasador.com
+	     Sobarica: sobarica@ambasador.com
+	     Majstor: majstor@ambasador.com
+		sifra: sifra123 za sve
+

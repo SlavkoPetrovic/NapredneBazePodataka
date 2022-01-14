@@ -45,6 +45,7 @@ namespace HotelManager.Forms.AdministratorForms
                                               Hotel = h.As<Hotel>()
 
                                           })
+                                          .OrderBy("(h.Name)")
                                           .ResultsAsync;
             var list = queryRadnik.ToList();
 

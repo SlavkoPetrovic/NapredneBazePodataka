@@ -78,7 +78,7 @@ namespace HotelManager.Forms.AdministratorForms
             {
                 Email = EmailTxtBox.Text,
                 Job = comboBox1.SelectedItem.ToString(),
-                ID = newId,
+                ID = 0,
                 Name = NameTxtBox.Text,
                 Surname = SurnameTxtBox.Text,
                 Password = hPassword

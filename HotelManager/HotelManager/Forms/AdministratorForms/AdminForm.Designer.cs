@@ -86,7 +86,10 @@ namespace HotelManager.Forms.AdministratorForms
             this.Controls.Add(this.showroomsbtn);
             this.Controls.Add(this.showWorkersbtn);
             this.Controls.Add(this.showHotelsbtn);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "AdminForm";
             this.Text = "Admin";
             this.Load += new System.EventHandler(this.AdminForm_Load);

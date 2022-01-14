@@ -46,13 +46,14 @@ namespace HotelManager.Forms.AdministratorForms
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
+            this.hotelListView.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.hotelListView.FullRowSelect = true;
             this.hotelListView.GridLines = true;
             this.hotelListView.HideSelection = false;
             this.hotelListView.Location = new System.Drawing.Point(12, 43);
             this.hotelListView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.hotelListView.Name = "hotelListView";
-            this.hotelListView.Size = new System.Drawing.Size(285, 254);
+            this.hotelListView.Size = new System.Drawing.Size(405, 254);
             this.hotelListView.TabIndex = 0;
             this.hotelListView.UseCompatibleStateImageBehavior = false;
             this.hotelListView.View = System.Windows.Forms.View.Details;
@@ -61,23 +62,27 @@ namespace HotelManager.Forms.AdministratorForms
             // columnHeader1
             // 
             this.columnHeader1.Text = "Naziv";
+            this.columnHeader1.Width = 100;
             // 
             // columnHeader2
             // 
             this.columnHeader2.Text = "Lokacija";
+            this.columnHeader2.Width = 100;
             // 
             // columnHeader3
             // 
             this.columnHeader3.Text = "Adresa";
+            this.columnHeader3.Width = 100;
             // 
             // columnHeader4
             // 
             this.columnHeader4.Text = "BrojRadnika";
+            this.columnHeader4.Width = 100;
             // 
             // ShowHotelBtn
             // 
             this.ShowHotelBtn.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.ShowHotelBtn.Location = new System.Drawing.Point(322, 152);
+            this.ShowHotelBtn.Location = new System.Drawing.Point(475, 132);
             this.ShowHotelBtn.Name = "ShowHotelBtn";
             this.ShowHotelBtn.Size = new System.Drawing.Size(125, 30);
             this.ShowHotelBtn.TabIndex = 1;
@@ -88,7 +93,7 @@ namespace HotelManager.Forms.AdministratorForms
             // DeleteHotelBtn
             // 
             this.DeleteHotelBtn.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.DeleteHotelBtn.Location = new System.Drawing.Point(322, 223);
+            this.DeleteHotelBtn.Location = new System.Drawing.Point(475, 208);
             this.DeleteHotelBtn.Name = "DeleteHotelBtn";
             this.DeleteHotelBtn.Size = new System.Drawing.Size(125, 30);
             this.DeleteHotelBtn.TabIndex = 2;
@@ -99,7 +104,7 @@ namespace HotelManager.Forms.AdministratorForms
             // AddNewHotelBtn
             // 
             this.AddNewHotelBtn.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.AddNewHotelBtn.Location = new System.Drawing.Point(322, 80);
+            this.AddNewHotelBtn.Location = new System.Drawing.Point(475, 75);
             this.AddNewHotelBtn.Name = "AddNewHotelBtn";
             this.AddNewHotelBtn.Size = new System.Drawing.Size(125, 29);
             this.AddNewHotelBtn.TabIndex = 3;
@@ -112,12 +117,14 @@ namespace HotelManager.Forms.AdministratorForms
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.CadetBlue;
-            this.ClientSize = new System.Drawing.Size(473, 328);
+            this.ClientSize = new System.Drawing.Size(628, 328);
             this.Controls.Add(this.AddNewHotelBtn);
             this.Controls.Add(this.DeleteHotelBtn);
             this.Controls.Add(this.ShowHotelBtn);
             this.Controls.Add(this.hotelListView);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.Name = "HotelsInformationsForm";
             this.Text = "Informacije hotela";
             this.Load += new System.EventHandler(this.HotelsInformations_Load);

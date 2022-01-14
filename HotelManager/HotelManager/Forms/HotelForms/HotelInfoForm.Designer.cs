@@ -39,6 +39,7 @@ namespace HotelManager.Forms.HotelForms
             // 
             // listView1
             // 
+            this.listView1.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HideSelection = false;
@@ -53,22 +54,24 @@ namespace HotelManager.Forms.HotelForms
             // PrikaziCmbBox
             // 
             this.PrikaziCmbBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.PrikaziCmbBox.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.PrikaziCmbBox.FormattingEnabled = true;
             this.PrikaziCmbBox.Items.AddRange(new object[] {
             "Radnike Hotela",
             "Sobe Hotela"});
             this.PrikaziCmbBox.Location = new System.Drawing.Point(78, 27);
             this.PrikaziCmbBox.Name = "PrikaziCmbBox";
-            this.PrikaziCmbBox.Size = new System.Drawing.Size(121, 23);
+            this.PrikaziCmbBox.Size = new System.Drawing.Size(121, 25);
             this.PrikaziCmbBox.TabIndex = 1;
             this.PrikaziCmbBox.SelectedIndexChanged += new System.EventHandler(this.PrikaziCmbBox_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("MV Boli", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(17, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 15);
+            this.label1.Size = new System.Drawing.Size(49, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "Prikazi:";
             // 
@@ -117,6 +120,8 @@ namespace HotelManager.Forms.HotelForms
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PrikaziCmbBox);
             this.Controls.Add(this.listView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimizeBox = false;
             this.Name = "HotelInfoForm";
             this.Text = "Informacije hotela";
             this.Load += new System.EventHandler(this.HotelInfoForm_Load);
