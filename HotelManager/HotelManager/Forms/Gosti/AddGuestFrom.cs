@@ -102,5 +102,10 @@ namespace HotelManager.Forms.Gosti
                 MessageBox.Show(exc.Message);
             }
         }
+
+        private void DocumentIDTextBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
